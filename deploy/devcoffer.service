@@ -1,0 +1,24 @@
+[Unit]
+Description=DevCoffer Nuxt SSR
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/devcoffer
+Environment=NODE_ENV=production
+Environment=HOST=0.0.0.0
+Environment=PORT=3000
+Environment=NITRO_HOST=0.0.0.0
+Environment=NITRO_PORT=3000
+Environment=NUXT_TELEMETRY_DISABLED=1
+ExecStart=/usr/bin/node .output/server/index.mjs
+Restart=always
+RestartSec=3
+
+# 若更新脚本需要 sudo 重启，可配置免密：
+# echo 'deploy ALL=NOPASSWD: /bin/systemctl restart devcoffer, /bin/systemctl status devcoffer' | sudo tee /etc/sudoers.d/devcoffer
+
+[Install]
+WantedBy=multi-user.target

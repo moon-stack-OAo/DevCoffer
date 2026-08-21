@@ -11,6 +11,7 @@
     "icons": "node scripts/gen-icons-css.mjs",
     "seo:assets": "node scripts/gen-seo-assets.mjs",
     "parity": "node scripts/parity.mjs",
+    "update:node": "bash scripts/update-node.sh",
     "typecheck": "nuxt prepare && vue-tsc --noEmit",
     "docker:build": "docker compose build",
     "docker:up": "docker compose up -d",

@@ -1,0 +1,123 @@
+# CI：构建 Nitro .output 产物并发布到滚动 Release `latest-dist`
+# - push main / tag / 手动：完整发布（artifact + Release latest-dist）
+# - pull_request：仅 install + build（不发 Release）
+#
+# 服务器更新：
+#   APP_DIR=/opt/devcoffer GITHUB_REPO=<owner>/<repo> ./scripts/update-node.sh
+name: CI Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ci-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install
+        run: npm ci --legacy-peer-deps
+
+      - name: Build
+        env:
+          NODE_ENV: production
+          NUXT_TELEMETRY_DISABLED: '1'
+        run: npm run build
+
+      - name: Verify .output
+        run: |
+          test -f .output/server/index.mjs
+          test -d .output/public
+          echo "=== .output size ==="
+          du -sh .output
+          node -p "require('./package.json').version || '0.0.0'" > .output/VERSION.txt
+          echo "${{ github.sha }}" > .output/COMMIT.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .output/BUILT_AT.txt
+          cat .output/VERSION.txt .output/COMMIT.txt .output/BUILT_AT.txt
+
+      - name: Pack .output
+        run: |
+          tar -czf nuxt-poc-output.tar.gz .output
+          ls -lh nuxt-poc-output.tar.gz
+          sha256sum nuxt-poc-output.tar.gz > nuxt-poc-output.tar.gz.sha256
+          cat nuxt-poc-output.tar.gz.sha256
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuxt-poc-output
+          path: |
+            nuxt-poc-output.tar.gz
+            nuxt-poc-output.tar.gz.sha256
+            .output/VERSION.txt
+            .output/COMMIT.txt
+            .output/BUILT_AT.txt
+          retention-days: 30
+
+      # 滚动标签必须指向本次构建 commit，否则 latest-dist 看起来“不是最新”
+      - name: Move rolling tag latest-dist to this commit
+        if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -f latest-dist "${{ github.sha }}"
+          git push -f origin refs/tags/latest-dist
+
+      - name: Publish rolling Release (latest-dist)
+        if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-dist
+          target_commitish: ${{ github.sha }}
+          name: 'Latest output (CI) — ${{ github.sha }}'
+          body: |
+            自动滚动发布的 Nitro SSR 产物，供服务器一键更新下载。
+
+            - commit: `${{ github.sha }}`
+            - ref: `${{ github.ref }}`
+            - 资产：`nuxt-poc-output.tar.gz`（内含 `.output/`）
+            - 以包内 `COMMIT.txt` / `BUILT_AT.txt` 为准
+
+            服务器示例：
+            ```bash
+            export GITHUB_REPO=${{ github.repository }}
+            export APP_DIR=/opt/devcoffer
+            ./scripts/update-node.sh
+            ```
+          files: |
+            nuxt-poc-output.tar.gz
+            nuxt-poc-output.tar.gz.sha256
+            .output/COMMIT.txt
+            .output/BUILT_AT.txt
+          prerelease: false
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
