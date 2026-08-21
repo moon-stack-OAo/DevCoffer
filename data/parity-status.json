@@ -1,0 +1,224 @@
+{
+  "gmsm": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 占位：国密示意，不对等完整实现"
+  },
+  "pyrun": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 说明页：未内嵌 Pyodide"
+  },
+  "protobuf": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 wire 示意：非完整 .proto 编译"
+  },
+  "jasypt": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 简化：非完整 Jasypt PBE 兼容"
+  },
+  "toml": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 极简：仅顶层 key=value"
+  },
+  "stomp": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "真 STOMP over WS：CONNECT/SUBSCRIBE/SEND/ACK/心跳/帧日志；手写协议对齐旧站"
+  },
+  "mqtt": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "真 mqtt.js 客户端：连接/订阅/发布/LWT/预设/日志；仅 ws/wss"
+  },
+  "grpc": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "5-byte frame+curl 命令、Wire 解码、状态码表；简易 JSON+schema 编码；非 gRPC-Web 客户端（与旧站一致）"
+  },
+  "plantuml": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 源码+外链编辑器"
+  },
+  "certparser": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 PEM 文本级解析"
+  },
+  "sqlexplain": {
+    "status": "waived",
+    "by": "system",
+    "at": "2026-08-19",
+    "note": "L4 启发式说明，非真实 EXPLAIN"
+  },
+  "cron": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "5~7段规范化/下次执行/可视化字段编辑与旧站一致；用例 0 */5 * * *"
+  },
+  "quartzcron": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "6/7字段说明+MON-FRI名替换+Spring @Scheduled；L/W/# 下次运行为近似"
+  },
+  "urlparser": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "URL 组件+查询参数对象；非法 URL 报错"
+  },
+  "urlquery": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "解析/构造往返；+ 空格解码；hash 保留"
+  },
+  "sqlbind": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "? 位置与 #{name}/:name 命名绑定；强制字符串引号"
+  },
+  "cookiecache": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "Cookie/Set-Cookie 解析 + Set-Cookie/Cache-Control 构造（已补齐）"
+  },
+  "ip": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "IPv4/CIDR：类别/私网/网络广播/可用主机"
+  },
+  "logfmt": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "logback 结构化解析+级别过滤+堆栈折叠+示例；对齐旧站 parseLog/parseLogLine"
+  },
+  "httpdebug": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "Params/Headers/Body/Auth/Options/历史；发送+Abort；cURL/Fetch/Axios/Java；反向解析；/__cors_proxy"
+  },
+  "ws": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "连接/发送/断开+日志；无自动重连/子协议为可接受简化"
+  },
+  "sse": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "EventSource+fetch stream/Header/事件过滤；CORS 限制与旧站一致"
+  },
+  "uaparser": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "ua-parser-js 解析+预设 UA+中文分区输出"
+  },
+  "mappicker": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "Leaflet 选点/定位/瓦片/坐标格式；hint 已迁 toolbar"
+  },
+  "videodebug": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "直链+HLS(hls.js)+M3U 频道+/__cors_proxy+截帧+事件日志+元信息；对齐旧站主路径"
+  },
+  "logpattern": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "Pattern 转换符识别与速查；空输入给示例"
+  },
+  "traceheader": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "traceparent/b3 解析+生成（已补齐）；采样标志"
+  },
+  "stacktrace": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "Java 异常/Caused by 解析；隐藏 JDK 帧"
+  },
+  "threaddump": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "线程头解析、状态分布、死锁段统计"
+  },
+  "nginxlog": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "combined 逐行解析+汇总统计（已补齐）"
+  },
+  "mybatissqllog": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "Preparing+Parameters 还原可执行 SQL"
+  },
+  "specificity": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "主路径 #app .nav a.active → (1,2,1)；:not/:is 复杂嵌套为简化算法"
+  },
+  "csselector": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "选择器速查 + 浏览器内 HTML querySelectorAll（已补齐）"
+  },
+  "spel": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "结构分析 + 简易试算子集（已补齐，对齐旧站 evalSimpleSpel）"
+  },
+  "poolcalc": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "公式对齐旧站：QPS200/50ms → core=12 max=24 queue=360"
+  },
+  "resratio": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "对齐旧站：输入即算、交换/清空/示例、20 预设、档位白名单+区间、标准比例含纵向、按比例反算(含自定义)"
+  },
+  "hashext": {
+    "status": "verified",
+    "by": "agent",
+    "at": "2026-08-20",
+    "note": "纠偏对齐旧站：CRC32/CRC32C/Adler32/SM3；列表逐项复制；空输入提示；去掉误叠的 MD5/SHA-*"
+  }
+}

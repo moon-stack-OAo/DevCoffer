@@ -1,0 +1,941 @@
+/* 参考工具：arthas / jmh / testgen / linux / docker / gitref / httpstatus / ascii / springcloud
+ * 当前无专属样式，复用 css/base.css 中的通用类。
+ * 未来新增的参考工具专属样式追加在此文件。
+ */
+
+/* 搜索框冻结样式
+ * 关键修复: position: sticky; top: -20px 让 ref-search-bar 滚动时紧贴 main-header 下方,
+ * 抵消 .tool-panel 的 padding-top: 20px,避免下滑内容从间隙透出。
+ * box-shadow 顶部 1px 模拟上边框,与 main-header 的 border-bottom 视觉融合。 */
+.ref-search-bar {
+    position: sticky;
+    top: -20px;
+    z-index: 10;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 -1px 0 var(--border),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.ref-search-bar + * {
+    margin-top: 0;
+}
+
+.tool-panel > .ref-search-bar:last-of-type,
+.tool-panel > .ref-search-bar:has(+ .ref-tabs-row) {
+    margin-bottom: 12px;
+}
+
+.ref-search-bar .label {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ref-search-bar .label i {
+    font-size: 13px;
+}
+
+.ref-search-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ref-search-input-wrap .search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 14px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+    z-index: 1;
+}
+
+.ref-search-input-wrap input {
+    width: 100%;
+    padding: 8px 34px 8px 34px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text);
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.ref-search-input-wrap input::placeholder {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.ref-search-input-wrap input:hover {
+    border-color: var(--border-light);
+}
+
+.ref-search-input-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12),
+    0 0 0 3px var(--accent-glow);
+    background: var(--bg-card2);
+}
+
+.ref-search-input-wrap input:focus ~ .search-icon,
+.ref-search-input-wrap input:focus + .search-icon {
+    color: var(--accent);
+}
+
+.ref-search-clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--bg-hover);
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: all 0.15s;
+    padding: 0;
+    box-shadow: none;
+    z-index: 1;
+}
+
+.ref-search-clear:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.ref-search-clear.visible {
+    display: flex;
+}
+
+/* arthas 工具专属样式 */
+.arthas-card {
+    padding: 8px 10px 10px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: background 0.12s,
+    border-color 0.12s;
+}
+
+.arthas-card:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card2);
+}
+
+.arthas-cmd-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.arthas-cmd-name {
+    background: var(--bg-input);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--accent2);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: var(--font);
+    font-weight: 600;
+}
+
+.arthas-cmd-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    flex: 1;
+    line-height: 1.5;
+    min-width: 0;
+}
+
+.arthas-scenario {
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 4px 0 0 2px;
+    line-height: 1.5;
+}
+
+.arthas-scenario::before {
+    content: '▸ ';
+    color: var(--accent);
+}
+
+.arthas-section-title {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    padding-left: 2px;
+    font-weight: 600;
+}
+
+.arthas-pre {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 7px 10px;
+    margin: 4px 0 0;
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.55;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.arthas-pre code {
+    font-family: var(--font);
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.arthas-pre-output {
+    background: var(--bg-terminal);
+    border-color: var(--border-terminal);
+    color: var(--text-dim);
+}
+
+.arthas-copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.15s;
+    z-index: 2;
+    font-weight: 500;
+    font-family: var(--font-ui);
+    box-shadow: none;
+    line-height: 1.4;
+}
+
+.arthas-copy-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: none;
+}
+
+.arthas-copy-wrap {
+    position: relative;
+}
+
+.arthas-copy-wrap:hover .arthas-copy-btn {
+    opacity: 1;
+}
+
+/* Redis 命令速查 */
+.redisref-card {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: background 0.12s,
+    border-color 0.12s;
+    position: relative;
+}
+
+.redisref-card:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card2);
+}
+
+.redisref-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.redisref-cmd {
+    background: var(--bg-input);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--accent2);
+    white-space: nowrap;
+    font-family: var(--font);
+    font-weight: 600;
+}
+
+.redisref-complexity {
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-family: var(--font);
+}
+
+.redisref-copy-btn {
+    margin-left: auto;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-ui);
+}
+
+.redisref-copy-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.redisref-syntax {
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--text);
+    padding: 4px 8px;
+    background: var(--bg-input);
+    border-radius: 3px;
+    margin: 4px 0;
+    overflow-x: auto;
+}
+
+.redisref-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin: 4px 0;
+}
+
+.redisref-examples {
+    margin: 4px 0;
+}
+
+.redisref-ex {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--accent2);
+    background: rgba(0, 0, 0, 0.15);
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 2px 0;
+    overflow-x: auto;
+}
+
+.redisref-returns {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* 仅限速查工具内的筛选 chip，勿污染侧栏 .sb-quick-item.active */
+#panel-redisref button.active,
+#panel-springcloud button.active,
+#panel-jvmargs button.active,
+#panel-mqref button.active {
+    background: var(--accent) !important;
+    color: var(--bg) !important;
+    border-color: var(--accent) !important;
+}
+
+/* Spring Cloud 组件速查 */
+.springcloud-card {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: background 0.12s,
+    border-color 0.12s;
+    position: relative;
+}
+
+.springcloud-card:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card2);
+}
+
+.springcloud-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.springcloud-key {
+    background: var(--bg-input);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--accent2);
+    white-space: nowrap;
+    font-family: var(--font);
+    font-weight: 600;
+}
+
+.springcloud-type {
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: var(--font-ui);
+    border: 1px solid;
+}
+
+.springcloud-type-注解 {
+    color: var(--purple);
+    border-color: rgba(var(--purple-rgb), 0.4);
+    background: rgba(var(--purple-rgb), 0.08);
+}
+
+.springcloud-type-配置项 {
+    color: var(--success);
+    border-color: rgba(var(--success-rgb), 0.4);
+    background: rgba(var(--success-rgb), 0.08);
+}
+
+.springcloud-type-概念 {
+    color: var(--warning);
+    border-color: rgba(var(--warning-rgb), 0.4);
+    background: rgba(var(--warning-rgb), 0.08);
+}
+
+.springcloud-type-组件 {
+    color: var(--accent2);
+    border-color: rgba(var(--accent2-rgb), 0.4);
+    background: rgba(var(--accent2-rgb), 0.08);
+}
+
+.springcloud-copy-btn {
+    margin-left: auto;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-ui);
+}
+
+.springcloud-copy-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.springcloud-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin: 4px 0;
+}
+
+.springcloud-example {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--text);
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 7px 10px;
+    margin: 6px 0 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* 消息中间件速查（Kafka / RabbitMQ / RocketMQ）*/
+.mqref-card {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: background 0.12s,
+    border-color 0.12s;
+    position: relative;
+}
+
+.mqref-card:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card2);
+}
+
+.mqref-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.mqref-key {
+    background: var(--bg-input);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--accent2);
+    white-space: nowrap;
+    font-family: var(--font);
+    font-weight: 600;
+}
+
+.mqref-type {
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: var(--font-ui);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    background: var(--bg-input);
+}
+
+.mqref-copy-btn {
+    margin-left: auto;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-ui);
+}
+
+.mqref-copy-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.mqref-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin: 4px 0;
+}
+
+.mqref-example {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--text);
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 7px 10px;
+    margin: 6px 0 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* 通用参考工具卡片样式（Gradle/IDEA/设计模式/GC/Spring Security/JUnit5） */
+.ref-card {
+    padding: 8px 10px 10px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: background 0.12s,
+    border-color 0.12s;
+}
+
+.ref-card:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card2);
+}
+
+.ref-cmd-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ref-cmd-name {
+    background: var(--bg-input);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--accent2);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: var(--font);
+    font-weight: 600;
+}
+
+.ref-cmd-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    flex: 1;
+    line-height: 1.5;
+    min-width: 0;
+}
+
+.ref-syntax {
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--text);
+    padding: 4px 8px;
+    background: var(--bg-input);
+    border-radius: 3px;
+    margin: 4px 0;
+    overflow-x: auto;
+}
+
+.ref-section-title {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    padding-left: 2px;
+    font-weight: 600;
+}
+
+.ref-pre {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 7px 10px;
+    margin: 4px 0 0;
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.55;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.ref-pre code {
+    font-family: var(--font);
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.ref-copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.15s;
+    z-index: 2;
+    font-weight: 500;
+    font-family: var(--font-ui);
+    box-shadow: none;
+    line-height: 1.4;
+}
+
+.ref-copy-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: none;
+}
+
+.ref-examples {
+    margin: 4px 0;
+}
+
+.ref-example {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--accent2);
+    background: rgba(0, 0, 0, 0.15);
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 2px 0;
+    overflow-x: auto;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ref-example:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.ref-returns {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.ref-copy-wrap {
+    position: relative;
+}
+
+.ref-copy-wrap:hover .ref-copy-btn {
+    opacity: 1;
+}
+
+/* === 统一优化（替代各文件内联 style） === */
+
+/* 分组容器 */
+.ref-group {
+    margin-bottom: 16px;
+}
+
+.ref-group:last-child {
+    margin-bottom: 0;
+}
+
+/* 分组标题（左侧色条 + 底部双线） */
+.ref-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 6px 0 6px 10px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.ref-group-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    bottom: 9px;
+    width: 3px;
+    border-radius: 2px;
+    background: var(--accent);
+}
+
+/* 卡片间距统一 */
+.arthas-card,
+.redisref-card,
+.springcloud-card,
+.mqref-card,
+.ref-card {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+}
+
+/* 卡片 hover 统一增强 */
+.arthas-card:hover,
+.redisref-card:hover,
+.springcloud-card:hover,
+.mqref-card:hover,
+.ref-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* tool-header 在 reference 面板中去 border-bottom（避免与 ref-search-bar 双重边框） */
+.tool-panel:has(> .ref-search-bar) > .tool-header {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+/* 带标签页的搜索栏（redisref / springcloud / mqref） */
+.ref-search-bar-tabs {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ref-search-bar-tabs > .ref-search-input-wrap {
+    flex: 1;
+    max-width: 400px;
+}
+
+/* 所有 reference 面板：flex 布局，面板不滚动，搜索栏/标题固定，数据区域独立滚动 */
+
+/* 有搜索栏的面板（通用） */
+.tool-panel.active:has(> .ref-search-bar) {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tool-panel:has(> .ref-search-bar) > .tool-header,
+.tool-panel:has(> .ref-search-bar) > .ref-search-bar {
+    flex-shrink: 0;
+}
+
+.tool-panel:has(> .ref-search-bar) > *:not(.tool-header):not(.ref-search-bar) {
+    flex: 1;
+    overflow: auto;
+    min-height: 0;
+}
+
+/* 无搜索栏的面板（docker / gitref / httpstatus） */
+#panel-docker.active,
+#panel-gitref.active,
+#panel-httpstatus.active {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#panel-docker > .tool-header,
+#panel-gitref > .tool-header,
+#panel-httpstatus > .tool-header {
+    flex-shrink: 0;
+}
+
+#panel-docker > .mb-8,
+#panel-gitref > .mb-8,
+#panel-httpstatus > .mb-8 {
+    flex: 1;
+    overflow: auto;
+    min-height: 0;
+}
+
+/* jvmargs: 搜索栏+标签页固定，数据+模板在 ref-scroll-area 内一起滚动 */
+#panel-jvmargs.active > #jvmargsTabs {
+    flex: none;
+    overflow: visible;
+    min-height: auto;
+}
+
+#panel-jvmargs.active > .ref-scroll-area {
+    flex: 1;
+    overflow: auto;
+    min-height: 0;
+}
+
+/* 通用网格 / 表格 / 卡片响应式 */
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+}
+
+.ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+
+.ref-table th,
+.ref-table td {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.ref-table th {
+    background: var(--bg-card2);
+    color: var(--text-dim);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.ref-table code {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+}
+
+@media (max-width: 900px) {
+    .ref-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .ref-search-bar-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ref-search-bar-tabs > .ref-search-input-wrap {
+        max-width: none;
+    }
+
+    .ref-cmd-head {
+        flex-wrap: wrap;
+    }
+
+    .ref-cmd-name {
+        white-space: normal;
+        word-break: break-all;
+    }
+
+    .ref-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ref-card,
+    .arthas-card,
+    .redisref-card,
+    .springcloud-card,
+    .mqref-card {
+        padding: 10px 12px;
+    }
+
+    .ref-pre,
+    .arthas-pre {
+        font-size: 11.5px;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .ref-search-bar {
+        padding: 10px 12px;
+        margin-bottom: 14px;
+    }
+
+    .ref-group-title {
+        font-size: 12px;
+    }
+
+    .ref-cmd-desc,
+    .ref-syntax {
+        font-size: 11.5px;
+    }
+}

@@ -1,0 +1,1720 @@
+{
+  "byCat": {
+    "format": {
+      "tools": [
+        {
+          "id": "favorites",
+          "name": "收藏",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "xml",
+          "name": "XML 格式化",
+          "vue": "components\\tools\\format\\XmlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "yaml",
+          "name": "YAML 格式化",
+          "vue": "components\\tools\\format\\YamlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "toml",
+          "name": "TOML 格式化",
+          "vue": "components\\tools\\format\\TomlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "propertiesfmt",
+          "name": "Properties 格式化",
+          "vue": "components\\tools\\format\\PropertiesfmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "sql",
+          "name": "SQL 格式化",
+          "vue": "components\\tools\\format\\SqlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jsonconvert",
+          "name": "JSON/XML/YAML 互转",
+          "vue": "components\\tools\\format\\JsonconvertTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jsonpath",
+          "name": "JSONPath 查询",
+          "vue": "components\\tools\\format\\JsonpathTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jsonschema",
+          "name": "JSON Schema",
+          "vue": "components\\tools\\format\\JsonschemaTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "sqldialect",
+          "name": "SQL 方言转换",
+          "vue": "components\\tools\\format\\SqldialectTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "dbtype",
+          "name": "数据库类型映射",
+          "vue": "components\\tools\\format\\DbtypeTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "json2sql",
+          "name": "JSON → SQL INSERT",
+          "vue": "components\\tools\\format\\Json2sqlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "xpath",
+          "name": "XPath 查询",
+          "vue": "components\\tools\\format\\XpathTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "sqlexplain",
+          "name": "SQL 执行计划",
+          "vue": "components\\tools\\format\\SqlexplainTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "nginxfmt",
+          "name": "Nginx 格式化",
+          "vue": "components\\tools\\format\\NginxfmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "javafmt",
+          "name": "Java 代码格式化",
+          "vue": "components\\tools\\format\\JavafmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "ddldiff",
+          "name": "DDL Schema 对比",
+          "vue": "components\\tools\\format\\DdldiffTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "jsonexcel",
+          "name": "JSON ↔ Excel/CSV",
+          "vue": "components\\tools\\format\\JsonexcelTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "imgtopdf",
+          "name": "图片转 PDF",
+          "vue": "components\\tools\\format\\ImgtopdfTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "pdfmerge",
+          "name": "PDF 合并 / 拆分",
+          "vue": "components\\tools\\format\\PdfmergeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "cssfmt",
+          "name": "CSS 格式化",
+          "vue": "components\\tools\\format\\CssfmtTool.vue",
+          "issues": [
+            "actions-wide-sel"
+          ],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "graphqlfmt",
+          "name": "GraphQL 格式化",
+          "vue": "components\\tools\\format\\GraphqlfmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "openapiview",
+          "name": "OpenAPI 预览",
+          "vue": "components\\tools\\format\\OpenapiviewTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "envfmt",
+          "name": ".env / 环境变量",
+          "vue": "components\\tools\\format\\EnvfmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "json5fmt",
+          "name": "JSON5 / JSONC",
+          "vue": "components\\tools\\format\\Json5fmtTool.vue",
+          "issues": [
+            "actions-wide-sel"
+          ],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "inifmt",
+          "name": "INI 格式化",
+          "vue": "components\\tools\\format\\InifmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jsonflat",
+          "name": "JSON 扁平化",
+          "vue": "components\\tools\\format\\JsonflatTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jsondiff",
+          "name": "JSON 结构化对比",
+          "vue": "components\\tools\\format\\JsondiffTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        }
+      ],
+      "issues": {
+        "missing-vue": 1,
+        "actions-wide-sel": 2
+      }
+    },
+    "encode": {
+      "tools": [
+        {
+          "id": "base64",
+          "name": "Base64",
+          "vue": "components\\tools\\encode\\Base64Tool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "url",
+          "name": "URL 编码",
+          "vue": "components\\tools\\encode\\UrlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "unicode",
+          "name": "Unicode",
+          "vue": "components\\tools\\encode\\UnicodeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "javaescape",
+          "name": "Java 转义",
+          "vue": "components\\tools\\encode\\JavaescapeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "charset",
+          "name": "编码解码",
+          "vue": "components\\tools\\encode\\CharsetTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "htmlescape",
+          "name": "HTML 转义",
+          "vue": "components\\tools\\encode\\HtmlescapeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "imgbase64",
+          "name": "图片 Base64",
+          "vue": "components\\tools\\encode\\Imgbase64Tool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "hex",
+          "name": "Hex 编码",
+          "vue": "components\\tools\\encode\\HexTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "base32",
+          "name": "Base32 / Base58",
+          "vue": "components\\tools\\encode\\Base32Tool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "protobuf",
+          "name": "Protobuf 解码",
+          "vue": "components\\tools\\encode\\ProtobufTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "morse",
+          "name": "摩斯电码",
+          "vue": "components\\tools\\encode\\MorseTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        }
+      ],
+      "issues": {}
+    },
+    "security": {
+      "tools": [
+        {
+          "id": "jwt",
+          "name": "JWT 解码",
+          "vue": "components\\tools\\security\\JwtTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "jwtgen",
+          "name": "JWT 生成",
+          "vue": "components\\tools\\security\\JwtgenTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "hash",
+          "name": "Hash 计算",
+          "vue": "components\\tools\\security\\HashTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "hmac",
+          "name": "HMAC 计算",
+          "vue": "components\\tools\\security\\HmacTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "hashext",
+          "name": "Hash 扩展",
+          "vue": "components\\tools\\security\\HashextTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "random",
+          "name": "随机生成器",
+          "vue": "components\\tools\\security\\RandomTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "pwdstrength",
+          "name": "密码强度检测",
+          "vue": "components\\tools\\security\\PwdstrengthTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "aes",
+          "name": "AES 加解密",
+          "vue": "components\\tools\\security\\AesTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jasypt",
+          "name": "Jasypt 加解密",
+          "vue": "components\\tools\\security\\JasyptTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "rsa",
+          "name": "RSA 工具",
+          "vue": "components\\tools\\security\\RsaTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "bcrypt",
+          "name": "bcrypt 加密",
+          "vue": "components\\tools\\security\\BcryptTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "totp",
+          "name": "TOTP 动态令牌",
+          "vue": "components\\tools\\security\\TotpTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "gmsm",
+          "name": "国密 SM2/3/4",
+          "vue": "components\\tools\\security\\GmsmTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "pbkdf2",
+          "name": "PBKDF2 哈希",
+          "vue": "components\\tools\\security\\Pbkdf2Tool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "certparser",
+          "name": "X.509 证书",
+          "vue": "components\\tools\\security\\CertparserTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "webhooksig",
+          "name": "Webhook 签名",
+          "vue": "components\\tools\\security\\WebhooksigTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "oauth2pkce",
+          "name": "OAuth2 / PKCE",
+          "vue": "components\\tools\\security\\Oauth2pkceTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "cvss",
+          "name": "CVSS 3.1 评分",
+          "vue": "components\\tools\\security\\CvssTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "jwtverify",
+          "name": "JWT 验签",
+          "vue": "components\\tools\\security\\JwtverifyTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        }
+      ],
+      "issues": {}
+    },
+    "generate": {
+      "tools": [
+        {
+          "id": "uuid",
+          "name": "UUID 生成",
+          "vue": "components\\tools\\generate\\UuidTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "ulid",
+          "name": "ULID / NanoID",
+          "vue": "components\\tools\\generate\\UlidTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "snowflake",
+          "name": "雪花 ID",
+          "vue": "components\\tools\\generate\\SnowflakeTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "ts",
+          "name": "时间戳转换",
+          "vue": "components\\tools\\generate\\TsTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "color",
+          "name": "颜色转换",
+          "vue": "components\\tools\\generate\\ColorTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "cssunit",
+          "name": "CSS 单位换算",
+          "vue": "components\\tools\\generate\\CssunitTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "boxshadow",
+          "name": "阴影生成器",
+          "vue": "components\\tools\\generate\\BoxshadowTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "gradient",
+          "name": "渐变生成器",
+          "vue": "components\\tools\\generate\\GradientTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "flexgrid",
+          "name": "Flex / Grid 可视化",
+          "vue": "components\\tools\\generate\\FlexgridTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "cubicbezier",
+          "name": "贝塞尔曲线",
+          "vue": "components\\tools\\generate\\CubicbezierTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "contrast",
+          "name": "对比度检查",
+          "vue": "components\\tools\\generate\\ContrastTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "svgopt",
+          "name": "SVG 优化",
+          "vue": "components\\tools\\generate\\SvgoptTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "favicon",
+          "name": "Favicon 生成",
+          "vue": "components\\tools\\generate\\FaviconTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "cssclamp",
+          "name": "CSS Clamp 计算器",
+          "vue": "components\\tools\\generate\\CssclampTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "mediaquery",
+          "name": "媒体查询生成",
+          "vue": "components\\tools\\generate\\MediaqueryTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "lorem",
+          "name": "Lorem / 占位图",
+          "vue": "components\\tools\\generate\\LoremTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "fontpreview",
+          "name": "字体预览",
+          "vue": "components\\tools\\generate\\FontpreviewTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "baseconvert",
+          "name": "进制转换",
+          "vue": "components\\tools\\generate\\BaseconvertTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "image-compress",
+          "name": "图片压缩",
+          "vue": "components\\tools\\generate\\ImageCompressTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "imgshuffle",
+          "name": "图片混淆",
+          "vue": "components\\tools\\generate\\ImgshuffleTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "case",
+          "name": "Case 转换",
+          "vue": "components\\tools\\generate\\CaseTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "datamock",
+          "name": "数据 Mock",
+          "vue": "components\\tools\\generate\\DatamockTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "datecalc",
+          "name": "日期计算器",
+          "vue": "components\\tools\\generate\\DatecalcTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "timezone",
+          "name": "时区转换",
+          "vue": "components\\tools\\generate\\TimezoneTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "resratio",
+          "name": "分辨率比例",
+          "vue": "components\\tools\\generate\\ResratioTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "bytesize",
+          "name": "字节单位换算",
+          "vue": "components\\tools\\generate\\BytesizeTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "semver",
+          "name": "SemVer 版本",
+          "vue": "components\\tools\\generate\\SemverTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "chmodcalc",
+          "name": "chmod 权限",
+          "vue": "components\\tools\\generate\\ChmodcalcTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "gitignore",
+          "name": ".gitignore 生成",
+          "vue": "components\\tools\\generate\\GitignoreTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "corsgen",
+          "name": "CORS 头生成",
+          "vue": "components\\tools\\generate\\CorsgenTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "cachecontrol",
+          "name": "Cache-Control 生成",
+          "vue": "components\\tools\\generate\\CachecontrolTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "cnyamount",
+          "name": "金额大写 / 信用代码",
+          "vue": "components\\tools\\generate\\CnyamountTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "javatimefmt",
+          "name": "Java 时间格式",
+          "vue": "components\\tools\\generate\\JavatimefmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "springbinding",
+          "name": "Spring 配置键转换",
+          "vue": "components\\tools\\generate\\SpringbindingTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "idvalidate",
+          "name": "证件号校验",
+          "vue": "components\\tools\\generate\\IdvalidateTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        }
+      ],
+      "issues": {}
+    },
+    "codegen": {
+      "tools": [
+        {
+          "id": "jsontopojo",
+          "name": "JSON → Java",
+          "vue": "components\\tools\\codegen\\JsontopojoTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "json2code",
+          "name": "JSON → 多语言",
+          "vue": "components\\tools\\codegen\\Json2codeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "json2ts",
+          "name": "JSON → Interface",
+          "vue": "components\\tools\\codegen\\Json2tsTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "sqltopojo",
+          "name": "SQL → Java",
+          "vue": "components\\tools\\codegen\\SqltopojoTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "ddl2entity",
+          "name": "DDL → 实体",
+          "vue": "components\\tools\\codegen\\Ddl2entityTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "openapi2ts",
+          "name": "OpenAPI → TS Client",
+          "vue": "components\\tools\\codegen\\Openapi2tsTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "sql2mybatis",
+          "name": "SQL → MyBatis",
+          "vue": "components\\tools\\codegen\\Sql2mybatisTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "mavencoord",
+          "name": "Maven 坐标",
+          "vue": "components\\tools\\codegen\\MavencoordTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "email",
+          "name": "邮件模板",
+          "vue": "components\\tools\\codegen\\EmailTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "jmh",
+          "name": "JMH 模板",
+          "vue": "components\\tools\\codegen\\JmhTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "testgen",
+          "name": "测试模板",
+          "vue": "components\\tools\\codegen\\TestgenTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "javastream",
+          "name": "Java Stream 生成",
+          "vue": "components\\tools\\codegen\\JavastreamTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "jmhpro",
+          "name": "JMH 进阶",
+          "vue": "components\\tools\\codegen\\JmhproTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "beanval",
+          "name": "Bean Validation",
+          "vue": "components\\tools\\codegen\\BeanvalTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "plantuml",
+          "name": "PlantUML 类图",
+          "vue": "components\\tools\\codegen\\PlantumlTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "mapstruct",
+          "name": "MapStruct 骨架",
+          "vue": "components\\tools\\codegen\\MapstructTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "ddlmermaid",
+          "name": "DDL → Mermaid ER",
+          "vue": "components\\tools\\codegen\\DdlmermaidTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "mermaid",
+          "name": "Mermaid 编辑器",
+          "vue": "components\\tools\\codegen\\MermaidTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "flywaygen",
+          "name": "Flyway/Liquibase 骨架",
+          "vue": "components\\tools\\codegen\\FlywaygenTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "entityconvert",
+          "name": "Entity ↔ DTO/VO",
+          "vue": "components\\tools\\codegen\\EntityconvertTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "javabuilder",
+          "name": "Java Builder",
+          "vue": "components\\tools\\codegen\\JavabuilderTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "ddl2crud",
+          "name": "DDL → CRUD",
+          "vue": "components\\tools\\codegen\\Ddl2crudTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "feigngen",
+          "name": "Feign 生成",
+          "vue": "components\\tools\\codegen\\FeigngenTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "jsrun",
+          "name": "JS/TS 运行",
+          "vue": "components\\tools\\codegen\\JsrunTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "htmlrun",
+          "name": "HTML 运行",
+          "vue": "components\\tools\\codegen\\HtmlrunTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "pyrun",
+          "name": "Python 运行",
+          "vue": "components\\tools\\codegen\\PyrunTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        }
+      ],
+      "issues": {}
+    },
+    "text": {
+      "tools": [
+        {
+          "id": "qrdecode",
+          "name": "二维码解析",
+          "vue": "components\\tools\\text\\QrdecodeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "diff",
+          "name": "文本对比",
+          "vue": "components\\tools\\text\\DiffTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "regex",
+          "name": "正则表达式",
+          "vue": "components\\tools\\text\\RegexTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "stats",
+          "name": "文本统计",
+          "vue": "components\\tools\\text\\StatsTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "csv",
+          "name": "CSV 格式化",
+          "vue": "components\\tools\\text\\CsvTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "markdown",
+          "name": "Markdown 预览",
+          "vue": "components\\tools\\text\\MarkdownTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "htmlmd",
+          "name": "HTML ↔ Markdown",
+          "vue": "components\\tools\\text\\HtmlmdTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "webfmt",
+          "name": "Web 格式化",
+          "vue": "components\\tools\\format\\WebfmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "qrcode",
+          "name": "二维码生成",
+          "vue": "components\\tools\\text\\QrcodeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "barcode",
+          "name": "条形码生成",
+          "vue": "components\\tools\\text\\BarcodeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "tplreplace",
+          "name": "模板替换",
+          "vue": "components\\tools\\text\\TplreplaceTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "desensitize",
+          "name": "数据脱敏",
+          "vue": "components\\tools\\text\\DesensitizeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "lineending",
+          "name": "行尾 / BOM / 不可见字符",
+          "vue": "components\\tools\\text\\LineendingTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "mdtable",
+          "name": "Markdown 表格 / 文本树",
+          "vue": "components\\tools\\text\\MdtableTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "regexjava",
+          "name": "正则 → Java 代码",
+          "vue": "components\\tools\\text\\RegexjavaTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "zhconvert",
+          "name": "中文繁简转换",
+          "vue": "components\\tools\\text\\ZhconvertTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "textlines",
+          "name": "文本行处理",
+          "vue": "components\\tools\\text\\TextlinesTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        }
+      ],
+      "issues": {}
+    },
+    "debug": {
+      "tools": [
+        {
+          "id": "cron",
+          "name": "Cron 表达式",
+          "vue": "components\\tools\\debug\\CronTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "quartzcron",
+          "name": "Quartz / 定时表达式",
+          "vue": "components\\tools\\debug\\QuartzcronTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "spel",
+          "name": "SpEL 速查 / 试算",
+          "vue": "components\\tools\\debug\\SpelTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "ws",
+          "name": "WebSocket",
+          "vue": "components\\tools\\debug\\WsTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "stomp",
+          "name": "STOMP",
+          "vue": "components\\tools\\debug\\StompTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "httpdebug",
+          "name": "HTTP 调试",
+          "vue": "components\\tools\\debug\\HttpdebugTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": false
+        },
+        {
+          "id": "cookiecache",
+          "name": "Cookie / 缓存头",
+          "vue": "components\\tools\\debug\\CookiecacheTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "ip",
+          "name": "IP 工具",
+          "vue": "components\\tools\\debug\\IpTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "grpc",
+          "name": "gRPC 调试",
+          "vue": "components\\tools\\debug\\GrpcTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "urlparser",
+          "name": "URL 解析",
+          "vue": "components\\tools\\debug\\UrlparserTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "uaparser",
+          "name": "UA 解析",
+          "vue": "components\\tools\\debug\\UaparserTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "logfmt",
+          "name": "日志高亮",
+          "vue": "components\\tools\\debug\\LogfmtTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "nginxlog",
+          "name": "Nginx 日志解析",
+          "vue": "components\\tools\\debug\\NginxlogTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "logpattern",
+          "name": "日志 Pattern",
+          "vue": "components\\tools\\debug\\LogpatternTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "traceheader",
+          "name": "链路追踪头",
+          "vue": "components\\tools\\debug\\TraceheaderTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "stacktrace",
+          "name": "异常分析",
+          "vue": "components\\tools\\debug\\StacktraceTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "threaddump",
+          "name": "线程 Dump 分析",
+          "vue": "components\\tools\\debug\\ThreaddumpTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "sse",
+          "name": "SSE 调试",
+          "vue": "components\\tools\\debug\\SseTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "mybatissqllog",
+          "name": "MyBatis SQL 还原",
+          "vue": "components\\tools\\debug\\MybatissqllogTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "sqlbind",
+          "name": "SQL 参数绑定",
+          "vue": "components\\tools\\debug\\SqlbindTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "urlquery",
+          "name": "URL 参数构造器",
+          "vue": "components\\tools\\debug\\UrlqueryTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "poolcalc",
+          "name": "线程池参数估算",
+          "vue": "components\\tools\\debug\\PoolcalcTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "videodebug",
+          "name": "视频调试",
+          "vue": "components\\tools\\debug\\VideodebugTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "mqtt",
+          "name": "MQTT 调试",
+          "vue": "components\\tools\\debug\\MqttTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "mappicker",
+          "name": "地图选址",
+          "vue": "components\\tools\\debug\\MappickerTool.vue",
+          "issues": [],
+          "dualFalse": true,
+          "hasToolbar": true
+        },
+        {
+          "id": "csselector",
+          "name": "CSS 选择器测试",
+          "vue": "components\\tools\\debug\\CsselectorTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": true
+        },
+        {
+          "id": "specificity",
+          "name": "特异性计算器",
+          "vue": "components\\tools\\debug\\SpecificityTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        }
+      ],
+      "issues": {}
+    },
+    "reference": {
+      "tools": [
+        {
+          "id": "arthas",
+          "name": "Arthas 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "linux",
+          "name": "Linux 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "jvmargs",
+          "name": "JVM 参数",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "redisref",
+          "name": "Redis 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "springcloud",
+          "name": "Spring Cloud",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "docker",
+          "name": "Docker 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "regexref",
+          "name": "正则速查表",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "gitref",
+          "name": "Git 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "httpstatus",
+          "name": "HTTP 状态码",
+          "vue": "components\\tools\\reference\\HttpstatusTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "ascii",
+          "name": "ASCII 表",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "mybatisplus",
+          "name": "MyBatis Plus",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "mybatissql",
+          "name": "MyBatis XML",
+          "vue": "components\\tools\\debug\\MybatissqllogTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "lombok",
+          "name": "Lombok 注解",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "springboot",
+          "name": "Spring Boot 注解",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "txpropagation",
+          "name": "事务传播",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "mavenref",
+          "name": "Maven 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "gradle",
+          "name": "Gradle 命令",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "jdkfeatures",
+          "name": "JDK 新特性",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "httpheader",
+          "name": "HTTP Header",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "mqref",
+          "name": "消息中间件",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "mimetype",
+          "name": "MIME 类型",
+          "vue": "components\\tools\\reference\\MimetypeTool.vue",
+          "issues": [],
+          "dualFalse": false,
+          "hasToolbar": false
+        },
+        {
+          "id": "portref",
+          "name": "端口号速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "ideakeys",
+          "name": "IDEA 快捷键",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "designpatterns",
+          "name": "设计模式",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "gcref",
+          "name": "GC 调优",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "securityref",
+          "name": "Spring Security",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "junit5",
+          "name": "JUnit 5",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "flowableref",
+          "name": "Flowable / BPMN",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "jparef",
+          "name": "JPA / Hibernate 速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "cssref",
+          "name": "CSS 属性速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "vuereactref",
+          "name": "Vue / React 速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "esref",
+          "name": "ES/JS 特性速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "k8sref",
+          "name": "Kubernetes 速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        },
+        {
+          "id": "esdslref",
+          "name": "ES DSL 速查",
+          "vue": null,
+          "issues": [
+            "missing-vue"
+          ]
+        }
+      ],
+      "issues": {
+        "missing-vue": 31
+      }
+    }
+  },
+  "totals": {
+    "format": {
+      "count": 28,
+      "withIssues": 3,
+      "issues": {
+        "missing-vue": 1,
+        "actions-wide-sel": 2
+      },
+      "problemIds": [
+        "favorites:missing-vue",
+        "cssfmt:actions-wide-sel",
+        "json5fmt:actions-wide-sel"
+      ]
+    },
+    "encode": {
+      "count": 11,
+      "withIssues": 0,
+      "issues": {},
+      "problemIds": []
+    },
+    "security": {
+      "count": 19,
+      "withIssues": 0,
+      "issues": {},
+      "problemIds": []
+    },
+    "generate": {
+      "count": 35,
+      "withIssues": 0,
+      "issues": {},
+      "problemIds": []
+    },
+    "codegen": {
+      "count": 26,
+      "withIssues": 0,
+      "issues": {},
+      "problemIds": []
+    },
+    "text": {
+      "count": 17,
+      "withIssues": 0,
+      "issues": {},
+      "problemIds": []
+    },
+    "debug": {
+      "count": 27,
+      "withIssues": 0,
+      "issues": {},
+      "problemIds": []
+    },
+    "reference": {
+      "count": 34,
+      "withIssues": 31,
+      "issues": {
+        "missing-vue": 31
+      },
+      "problemIds": [
+        "arthas:missing-vue",
+        "linux:missing-vue",
+        "jvmargs:missing-vue",
+        "redisref:missing-vue",
+        "springcloud:missing-vue",
+        "docker:missing-vue",
+        "regexref:missing-vue",
+        "gitref:missing-vue",
+        "ascii:missing-vue",
+        "mybatisplus:missing-vue",
+        "lombok:missing-vue",
+        "springboot:missing-vue",
+        "txpropagation:missing-vue",
+        "mavenref:missing-vue",
+        "gradle:missing-vue",
+        "jdkfeatures:missing-vue",
+        "httpheader:missing-vue",
+        "mqref:missing-vue",
+        "portref:missing-vue",
+        "ideakeys:missing-vue",
+        "designpatterns:missing-vue",
+        "gcref:missing-vue",
+        "securityref:missing-vue",
+        "junit5:missing-vue",
+        "flowableref:missing-vue",
+        "jparef:missing-vue",
+        "cssref:missing-vue",
+        "vuereactref:missing-vue",
+        "esref:missing-vue",
+        "k8sref:missing-vue",
+        "esdslref:missing-vue"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2269 @@
+/**
+ * 工具元数据源（手维护）。
+ */
+export type Tool = { id: string; name: string; cat: string; icon: string; desc: string; tags: string[] }
+export type Category = { id: string; name: string; icon: string; virtual?: boolean }
+
+export const categories: Category[] = [
+    {
+        id: "favorites",
+        name: "收藏",
+        icon: "bi-star-fill",
+        virtual: true
+    },
+    {
+        id: "recent",
+        name: "最近使用",
+        icon: "bi-clock-history",
+        virtual: true
+    },
+    {
+        id: "format",
+        name: "格式化",
+        icon: "bi-file-earmark-code",
+        virtual: false
+    },
+    {
+        id: "encode",
+        name: "编解码",
+        icon: "bi-arrow-left-right",
+        virtual: false
+    },
+    {
+        id: "security",
+        name: "安全",
+        icon: "bi-shield-lock",
+        virtual: false
+    },
+    {
+        id: "generate",
+        name: "生成与转换",
+        icon: "bi-magic",
+        virtual: false
+    },
+    {
+        id: "codegen",
+        name: "代码生成",
+        icon: "bi-code-square",
+        virtual: false
+    },
+    {
+        id: "text",
+        name: "文本",
+        icon: "bi-fonts",
+        virtual: false
+    },
+    {
+        id: "debug",
+        name: "调试",
+        icon: "bi-bug",
+        virtual: false
+    },
+    {
+        id: "reference",
+        name: "参考",
+        icon: "bi-book",
+        virtual: false
+    }
+]
+
+export const tools: Tool[] = [
+    {
+        id: "json",
+        icon: "bi-braces",
+        name: "JSON 格式化",
+        desc: "格式化 / 压缩 / 验证 JSON",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "xml",
+        icon: "bi-filetype-xml",
+        name: "XML 格式化",
+        desc: "格式化 / 压缩 / 验证 XML",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "yaml",
+        icon: "bi-filetype-yml",
+        name: "YAML 格式化",
+        desc: "YAML 格式化 / JSON 互转",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "toml",
+        icon: "bi-file-earmark-code",
+        name: "TOML 格式化",
+        desc: "极简顶层 key=value 格式化 / 转 JSON（含 [table] 会明确报错）",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "propertiesfmt",
+        icon: "bi-file-earmark-text",
+        name: "Properties 格式化",
+        desc: "Properties 格式化 / 校验 / 排序 / Unicode 转义",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "sql",
+        icon: "bi-database",
+        name: "SQL 格式化",
+        desc: "SQL 美化 / 多方言 / 基础残缺校验",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsonconvert",
+        icon: "bi-arrow-left-right",
+        name: "JSON/YAML 互转",
+        desc: "JSON ↔ YAML 互转 / 键排序 / 数组包装",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsonpath",
+        icon: "bi-search",
+        name: "JSONPath 查询",
+        desc: "JSONPath 表达式查询 / 提取",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsonschema",
+        icon: "bi-diagram-3",
+        name: "JSON Schema",
+        desc: "JSON Schema 基础子集校验",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "sqldialect",
+        icon: "bi-translate",
+        name: "SQL 方言转换",
+        desc: "有限规则字符串替换（MySQL↔PG / MySQL→Oracle）",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "dbtype",
+        icon: "bi-table",
+        name: "数据库类型映射",
+        desc: "Java ↔ MySQL / PostgreSQL / Oracle 类型对照",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "json2sql",
+        icon: "bi-database-add",
+        name: "JSON → SQL INSERT",
+        desc: "JSON 对象/数组生成 MySQL 风格 INSERT",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "xpath",
+        icon: "bi-diagram-3",
+        name: "XPath 查询",
+        desc: "XPath 1.0 查询 / 提取 XML 节点",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "sqlexplain",
+        icon: "bi-diagram-3",
+        name: "SQL 计划启发式",
+        desc: "启发式风险提示（非真实 EXPLAIN）",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "nginxfmt",
+        icon: "bi-server",
+        name: "Nginx 格式化",
+        desc: "Nginx 配置格式化 / 压缩 / 基础 Lint",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "javafmt",
+        icon: "bi-code-square",
+        name: "Java 代码格式化",
+        desc: "Java 美化 / 缩进 / 大括号风格 / import 排序",
+        cat: "format",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "ddldiff",
+        icon: "bi-database-fill-gear",
+        name: "DDL Schema 对比",
+        desc: "MySQL 风格 CREATE TABLE 语义对比（表/列增减改）/ 可选行 Diff",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsonexcel",
+        icon: "bi-file-earmark-spreadsheet",
+        name: "JSON ↔ Excel",
+        desc: "扁平 JSON ↔ xlsx 互转",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "imgtopdf",
+        icon: "bi-file-earmark-pdf",
+        name: "图片转 PDF",
+        desc: "多张图片合成 PDF",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "pdfmerge",
+        icon: "bi-union",
+        name: "PDF 合并/拆分",
+        desc: "合并 / 按页码范围拆分",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "cssfmt",
+        icon: "bi-filetype-css",
+        name: "CSS 格式化",
+        desc: "CSS 格式化 / 压缩 / 美化",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "graphqlfmt",
+        icon: "bi-diagram-3",
+        name: "GraphQL 格式化",
+        desc: "GraphQL 查询/mutation 美化 / 压缩 / 括号检查",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "openapiview",
+        icon: "bi-file-earmark-code",
+        name: "OpenAPI 预览",
+        desc: "OpenAPI 3 / Swagger 2 结构化摘要预览（JSON/YAML）",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "envfmt",
+        icon: "bi-file-earmark-ruled",
+        name: ".env / 环境变量",
+        desc: ".env 解析 / 格式化对齐 / 重复 key 校验",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "json5fmt",
+        icon: "bi-braces-asterisk",
+        name: "JSON5 / JSONC",
+        desc: "JSON5 / JSONC 格式化与转标准 JSON",
+        cat: "format",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "inifmt",
+        icon: "bi-file-earmark-text",
+        name: "INI 格式化",
+        desc: "INI / conf 格式化与校验",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsonflat",
+        icon: "bi-diagram-3",
+        name: "JSON 扁平化",
+        desc: "嵌套 JSON ↔ 点号/括号路径扁平 Map",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsondiff",
+        icon: "bi-file-diff",
+        name: "JSON 结构化对比",
+        desc: "两份 JSON 键路径级 diff / 增删改报告",
+        cat: "format",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "basen",
+        icon: "bi-file-binary",
+        name: "BaseN",
+        desc: "Base64 / Base32 (RFC 4648) / Base58 (Bitcoin) 文本编解码",
+        cat: "encode",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "url",
+        icon: "bi-link-45deg",
+        name: "URL 编码",
+        desc: "encodeURIComponent / decodeURIComponent 编解码",
+        cat: "encode",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "unicode",
+        icon: "bi-translate",
+        name: "Unicode",
+        desc: "\\uXXXX 编码 / 解码",
+        cat: "encode",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "javaescape",
+        icon: "bi-code-slash",
+        name: "Java 转义",
+        desc: "Java 字符串转义 / 反转义",
+        cat: "encode",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "charset",
+        icon: "bi-fonts",
+        name: "编码解码",
+        desc: "字节按编码解码 / UTF-8 编码 / 乱码对照",
+        cat: "encode",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "htmlescape",
+        icon: "bi-filetype-html",
+        name: "HTML 转义",
+        desc: "HTML 实体编码 / 解码",
+        cat: "encode",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "imgbase64",
+        icon: "bi-image",
+        name: "图片 Base64",
+        desc: "文件↔DataURL / Base64 预览",
+        cat: "encode",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "hex",
+        icon: "bi-0-circle",
+        name: "Hex 编码",
+        desc: "字符串 ↔ Hex 互转（UTF-8）",
+        cat: "encode",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "protobuf",
+        icon: "bi-file-earmark-binary",
+        name: "Protobuf",
+        desc: "Hex/Base64 wire 解析 + JSON 字段示意（无 schema）",
+        cat: "encode",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "morse",
+        icon: "bi-broadcast",
+        name: "摩斯电码",
+        desc: "文本 ↔ 摩斯电码（ITU / 中文电码）",
+        cat: "encode",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jwt",
+        icon: "bi-key",
+        name: "JWT 解码",
+        desc: "解析 JWT Header / Payload",
+        cat: "security",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "jwtgen",
+        icon: "bi-pen",
+        name: "JWT 生成",
+        desc: "HS256 签名生成 JWT",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "hash",
+        icon: "bi-hash",
+        name: "Hash 计算",
+        desc: "MD5 / SHA-1 / SHA-256 / SHA-384 / SHA-512",
+        cat: "security",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "hmac",
+        icon: "bi-key-fill",
+        name: "HMAC 计算",
+        desc: "HMAC-MD5 / SHA-1 / SHA-256 / SHA-384 / SHA-512",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "hashext",
+        icon: "bi-hash",
+        name: "Hash 扩展",
+        desc: "CRC32 / CRC32C / Adler32 / SM3",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "random",
+        icon: "bi-dice-6",
+        name: "随机生成器",
+        desc: "密码 / Token / PIN 生成",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "pwdstrength",
+        icon: "bi-shield-fill-check",
+        name: "密码强度检测",
+        desc: "本地检测密码强度 / 改进建议",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "aes",
+        icon: "bi-shield-check",
+        name: "AES 加解密",
+        desc: "AES 对称加密 / 解密",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jasypt",
+        icon: "bi-safe2",
+        name: "Jasypt 加解密",
+        desc: "Jasypt 风格演示（非 PBEWithMD5AndDES）",
+        cat: "security",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "rsa",
+        icon: "bi-shield-exclamation",
+        name: "RSA 工具",
+        desc: "RSA-OAEP 密钥生成 / 加解密",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "bcrypt",
+        icon: "bi-shield-lock",
+        name: "bcrypt 加密",
+        desc: "bcrypt 哈希 / 验证",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "totp",
+        icon: "bi-stopwatch",
+        name: "TOTP 动态令牌",
+        desc: "TOTP 本地生成 / 校验 / otpauth URI 解析",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "gmsm",
+        icon: "bi-shield-fill",
+        name: "国密 SM2/3/4",
+        desc: "国密 SM2/3/4 占位说明",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "pbkdf2",
+        icon: "bi-shield-shaded",
+        name: "PBKDF2 哈希",
+        desc: "PBKDF2-HMAC-SHA256/512 派生（JSON 输出）",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "certparser",
+        icon: "bi-patch-check",
+        name: "X.509 证书",
+        desc: "X.509 证书 PEM 文本解析",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "webhooksig",
+        icon: "bi-shield-check",
+        name: "Webhook 签名",
+        desc: "HMAC 签名生成 / 校验（sha256=hex）",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "oauth2pkce",
+        icon: "bi-key",
+        name: "OAuth2 / PKCE",
+        desc: "code_verifier / challenge / Authorize URL",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "cvss",
+        icon: "bi-speedometer",
+        name: "CVSS 3.1 评分",
+        desc: "CVSS v3.1 Base Score / 向量字符串",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jwtverify",
+        icon: "bi-shield-check",
+        name: "JWT 验签",
+        desc: "HS256 验签 / exp·nbf 声明检查",
+        cat: "security",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "uuid",
+        icon: "bi-fingerprint",
+        name: "UUID 生成",
+        desc: "UUID v4 批量生成",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "ulid",
+        icon: "bi-fingerprint",
+        name: "ULID / NanoID",
+        desc: "ULID / NanoID 生成与 ULID 解析",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "snowflake",
+        icon: "bi-snow",
+        name: "雪花 ID",
+        desc: "Twitter Snowflake 生成与解析",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "ts",
+        icon: "bi-clock",
+        name: "时间戳转换",
+        desc: "Unix 毫秒/秒 ↔ 日期",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "color",
+        icon: "bi-palette",
+        name: "颜色转换",
+        desc: "HEX / RGB / HSL 互转预览",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "cssunit",
+        icon: "bi-rulers",
+        name: "CSS 单位换算",
+        desc: "px / rem / em / pt / % 等单位换算",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "boxshadow",
+        icon: "bi-shadows",
+        name: "阴影生成器",
+        desc: "单层 box-shadow 可视化 / 实时预览",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "gradient",
+        icon: "bi-palette2",
+        name: "渐变生成器",
+        desc: "线性 / 径向渐变参数生成 CSS",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "flexgrid",
+        icon: "bi-grid-3x3-gap",
+        name: "Flex / Grid 可视化",
+        desc: "点选主轴交叉轴 gap 列定义，生成 Flex/Grid CSS",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "cubicbezier",
+        icon: "bi-bezier2",
+        name: "贝塞尔曲线",
+        desc: "数值调 cubic-bezier / 预设 / 动画预览",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "contrast",
+        icon: "bi-circle-half",
+        name: "对比度检查",
+        desc: "前景/背景色 WCAG AA/AAA 对比度检测",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "svgopt",
+        icon: "bi-filetype-svg",
+        name: "SVG 优化",
+        desc: "SVG 去冗余 / 预览 / 转 data URI",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "favicon",
+        icon: "bi-app-indicator",
+        name: "Favicon 生成",
+        desc: "文字生成 SVG Favicon",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "cssclamp",
+        icon: "bi-text-paragraph",
+        name: "CSS Clamp 计算器",
+        desc: "fluid typography clamp(min, preferred, max) 参数计算",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "mediaquery",
+        icon: "bi-phone",
+        name: "媒体查询生成",
+        desc: "常见断点预设 + 自定义 @media 生成",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "lorem",
+        icon: "bi-textarea-t",
+        name: "Lorem / 占位图",
+        desc: "中英文假文生成 / 纯色占位图 data URL",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "fontpreview",
+        icon: "bi-fonts",
+        name: "字体预览",
+        desc: "本地 ttf/otf/woff 字体预览 / 字号字重行高",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "baseconvert",
+        icon: "bi-calculator",
+        name: "进制转换",
+        desc: "2~36 进制互转",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "image-compress",
+        icon: "bi-image",
+        name: "图片压缩",
+        desc: "本地压缩，支持 JPEG / WebP",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "imgshuffle",
+        icon: "bi-shuffle",
+        name: "图片混淆",
+        desc: "随机切块打乱拼贴（不可逆）",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "case",
+        icon: "bi-type",
+        name: "Case 转换",
+        desc: "camelCase / snake_case 等",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "datamock",
+        icon: "bi-people",
+        name: "数据 Mock",
+        desc: "生成姓名 / 手机号 / 邮箱等",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "datecalc",
+        icon: "bi-calendar",
+        name: "日期计算器",
+        desc: "日期加减 / 间隔 / 工作日（仅排除周末）",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "timezone",
+        icon: "bi-globe",
+        name: "时区转换",
+        desc: "跨时区时间换算",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "resratio",
+        icon: "bi-aspect-ratio",
+        name: "分辨率比例",
+        desc: "宽高比 / 档位匹配 / 按比例反算",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "bytesize",
+        icon: "bi-hdd",
+        name: "字节单位换算",
+        desc: "B/KB/MB/GB ↔ KiB/MiB/GiB，1000/1024 进制",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "semver",
+        icon: "bi-tags",
+        name: "SemVer 版本",
+        desc: "SemVer 解析 / bump / 比较 / 排序 / ^~ range",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "chmodcalc",
+        icon: "bi-lock",
+        name: "chmod 权限",
+        desc: "八进制 ↔ rwx / setuid·setgid·sticky",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "gitignore",
+        icon: "bi-git",
+        name: ".gitignore 生成",
+        desc: "模板勾选 + 自定义规则，可下载 .gitignore",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "corsgen",
+        icon: "bi-globe2",
+        name: "CORS 头生成",
+        desc: "勾选源/方法/凭证等生成 Access-Control-* 响应头",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "cachecontrol",
+        icon: "bi-hdd-stack",
+        name: "Cache-Control 生成",
+        desc: "可视化生成 Cache-Control / Expires / Vary 响应头",
+        cat: "generate",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "cnyamount",
+        icon: "bi-currency-yen",
+        name: "金额大写",
+        desc: "人民币金额大写转换",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "javatimefmt",
+        icon: "bi-calendar3",
+        name: "Java 时间格式",
+        desc: "DateTimeFormatter 模式试算 / 字母速查 / 常见模板",
+        cat: "generate",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "springbinding",
+        icon: "bi-sliders",
+        name: "Spring 配置键转换",
+        desc: "relaxed binding：kebab / camel / env 互转",
+        cat: "generate",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "idvalidate",
+        icon: "bi-person-vcard",
+        name: "身份证校验",
+        desc: "身份证校验位 / 地区解析",
+        cat: "generate",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jsontopojo",
+        icon: "bi-filetype-json",
+        name: "JSON → Java",
+        desc: "JSON 生成 Java POJO 类",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "json2code",
+        icon: "bi-code-slash",
+        name: "JSON → 多语言",
+        desc: "JSON 生成 Java / TypeScript / Go / Python 骨架",
+        cat: "codegen",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "json2ts",
+        icon: "bi-filetype-tsx",
+        name: "JSON → Interface",
+        desc: "JSON / Object 生成 TypeScript interface / type",
+        cat: "codegen",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "sqltopojo",
+        icon: "bi-database",
+        name: "SQL → Java",
+        desc: "DDL 生成 Java POJO 字段类",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "ddl2entity",
+        icon: "bi-database-gear",
+        name: "DDL → 实体",
+        desc: "DDL 生成 Java 字段类",
+        cat: "codegen",
+        tags: [
+            "common",
+            "backend",
+            "java"
+        ]
+    },
+    {
+        id: "openapi2ts",
+        icon: "bi-filetype-tsx",
+        name: "OpenAPI → TS Client",
+        desc: "OpenAPI 生成 TypeScript 调用代码",
+        cat: "codegen",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "sql2mybatis",
+        icon: "bi-filetype-xml",
+        name: "SQL → MyBatis",
+        desc: "注解 Mapper 接口骨架",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "mavencoord",
+        icon: "bi-box-seam",
+        name: "Maven 坐标",
+        desc: "GAV → pom / Gradle / SBT 依赖片段",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "email",
+        icon: "bi-envelope",
+        name: "邮箱校验 / 提取",
+        desc: "邮箱地址格式校验 / 从文本批量提取邮箱",
+        cat: "codegen",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jmh",
+        icon: "bi-speedometer2",
+        name: "JMH 模板",
+        desc: "JMH 基准测试代码生成",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "testgen",
+        icon: "bi-check2-square",
+        name: "测试模板",
+        desc: "JUnit 5 / JMH 测试骨架",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "javastream",
+        icon: "bi-funnel",
+        name: "Java Stream 生成",
+        desc: "Stream API 模板选择生成",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "jmhpro",
+        icon: "bi-speedometer",
+        name: "JMH 进阶",
+        desc: "JMH 进阶骨架（Mode / Group / CompilerControl 等）",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "beanval",
+        icon: "bi-check-circle",
+        name: "Bean Validation",
+        desc: "javax.validation 注解自动推导 / DTO 生成",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "plantuml",
+        icon: "bi-diagram-2",
+        name: "PlantUML 类图",
+        desc: "PlantUML 源码生成 · 外链预览",
+        cat: "codegen",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mapstruct",
+        icon: "bi-arrow-left-right",
+        name: "MapStruct 骨架",
+        desc: "两个 Java 类生成 MapStruct Mapper 骨架",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "ddlmermaid",
+        icon: "bi-diagram-3",
+        name: "DDL → Mermaid ER",
+        desc: "CREATE TABLE 生成 Mermaid erDiagram",
+        cat: "codegen",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mermaid",
+        icon: "bi-diagram-3-fill",
+        name: "Mermaid 编辑器",
+        desc: "Mermaid 源码实时预览",
+        cat: "codegen",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "flywaygen",
+        icon: "bi-database-gear",
+        name: "Flyway 骨架",
+        desc: "Flyway 迁移文件名与 SQL 模板",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "entityconvert",
+        icon: "bi-arrow-left-right",
+        name: "Entity ↔ DTO/VO",
+        desc: "Entity / DTO / VO 互转骨架",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "javabuilder",
+        icon: "bi-hammer",
+        name: "Java Builder",
+        desc: "手写 Builder / 去 Lombok 展开",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "ddl2crud",
+        icon: "bi-layers",
+        name: "DDL → CRUD",
+        desc: "DDL 生成 Mapper/Service CRUD 骨架",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "feigngen",
+        icon: "bi-cloud",
+        name: "Feign 生成",
+        desc: "OpenFeign Client 接口骨架",
+        cat: "codegen",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "jsrun",
+        icon: "bi-play-circle",
+        name: "JS 运行",
+        desc: "浏览器 Function 沙箱执行 JS / 捕获 console",
+        cat: "codegen",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "htmlrun",
+        icon: "bi-filetype-html",
+        name: "HTML 运行",
+        desc: "单份 HTML 沙箱预览（iframe）",
+        cat: "codegen",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "pyrun",
+        icon: "bi-filetype-py",
+        name: "Python 运行",
+        desc: "Pyodide 说明页（未默认内嵌运行时）",
+        cat: "codegen",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "diff",
+        icon: "bi-file-earmark-diff",
+        name: "文本对比",
+        desc: "行级 +/- 对比 / 高亮预览",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "regex",
+        icon: "bi-regex",
+        name: "正则表达式",
+        desc: "正则匹配测试 / 分组查看",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "stats",
+        icon: "bi-bar-chart",
+        name: "文本统计",
+        desc: "字符 / 单词 / 行数 / 字节",
+        cat: "text",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "csv",
+        icon: "bi-table",
+        name: "CSV 格式化",
+        desc: "CSV → JSON / HTML / 列对齐",
+        cat: "text",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "markdown",
+        icon: "bi-markdown",
+        name: "Markdown 预览",
+        desc: "Markdown 实时预览（消毒）/ 复制或导出 HTML",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "htmlmd",
+        icon: "bi-arrow-left-right",
+        name: "HTML ↔ Markdown",
+        desc: "HTML 与 Markdown 互转",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "webfmt",
+        icon: "bi-filetype-html",
+        name: "HTML 格式化",
+        desc: "HTML 简易缩进美化",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "qrcode",
+        icon: "bi-qr-code",
+        name: "二维码",
+        desc: "生成 / 解析二维码（本地处理）",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "barcode",
+        icon: "bi-upc",
+        name: "条形码生成",
+        desc: "生成 / 复制 / 下载 SVG",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "tplreplace",
+        icon: "bi-braces-asterisk",
+        name: "模板替换",
+        desc: "多种语法字符串变量替换",
+        cat: "text",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "desensitize",
+        icon: "bi-eye-slash",
+        name: "数据脱敏",
+        desc: "手机/身份证/银行卡/邮箱等本地脱敏",
+        cat: "text",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "lineending",
+        icon: "bi-text-wrap",
+        name: "行尾 / BOM / 不可见字符",
+        desc: "CRLF/LF/CR、BOM、零宽字符检测与转换",
+        cat: "text",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mdtable",
+        icon: "bi-table",
+        name: "Markdown 表格",
+        desc: "CSV ↔ MD 表格 / 对齐美化",
+        cat: "text",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "regexjava",
+        icon: "bi-regex",
+        name: "正则 → Java 代码",
+        desc: "生成 Pattern/Matcher 与正确转义字面量",
+        cat: "text",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "zhconvert",
+        icon: "bi-translate",
+        name: "中文繁简转换",
+        desc: "简体 / 繁体互转（常用字）",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "textlines",
+        icon: "bi-list-ol",
+        name: "文本行处理",
+        desc: "排序 / 去重 / 反转 / 打乱 / 行号",
+        cat: "text",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "cron",
+        icon: "bi-clock-history",
+        name: "Cron 表达式",
+        desc: "Cron 解析 / 下次执行时间",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "quartzcron",
+        icon: "bi-alarm",
+        name: "Quartz / 定时表达式",
+        desc: "Quartz cron 解析 / 与 Unix 差异 / @Scheduled",
+        cat: "debug",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "spel",
+        icon: "bi-code-slash",
+        name: "SpEL 速查 / 试算",
+        desc: "SpEL 语法速查 / 简易表达式求值",
+        cat: "debug",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "ws",
+        icon: "bi-plug",
+        name: "WebSocket",
+        desc: "WebSocket 连接调试",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "stomp",
+        icon: "bi-chat-dots",
+        name: "STOMP",
+        desc: "STOMP over WebSocket 调试",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "httpdebug",
+        icon: "bi-send",
+        name: "HTTP 调试",
+        desc: "发送请求 / cURL 解析 / Fetch·Axios·Java 代码生成",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "cookiecache",
+        icon: "bi-cookie",
+        name: "Cookie / 缓存头",
+        desc: "Cookie·Set-Cookie 解析构造 / Cache-Control",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "ip",
+        icon: "bi-globe2",
+        name: "IP 工具",
+        desc: "IPv4 / CIDR 子网计算",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "grpc",
+        icon: "bi-hdd-rack",
+        name: "gRPC 调试",
+        desc: "Metadata 构造 / Protobuf 解码 / 状态码",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "urlparser",
+        icon: "bi-link-45deg",
+        name: "URL 解析",
+        desc: "URL 拆解为协议 / 主机 / 路径 / 查询",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "uaparser",
+        icon: "bi-window-desktop",
+        name: "UA 解析",
+        desc: "User-Agent 解析",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "logfmt",
+        icon: "bi-file-text",
+        name: "日志高亮",
+        desc: "日志格式化 + 级别着色 + 堆栈折叠",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "nginxlog",
+        icon: "bi-file-text",
+        name: "Nginx 日志解析",
+        desc: "access.log 解析 / 汇总 / 过滤",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "logpattern",
+        icon: "bi-regex",
+        name: "日志 Pattern",
+        desc: "Logback/Log4j conversion word 解析与模板",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "traceheader",
+        icon: "bi-share",
+        name: "链路追踪头",
+        desc: "W3C traceparent / B3 生成与解析",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "stacktrace",
+        icon: "bi-list-ol",
+        name: "异常分析",
+        desc: "Java 堆栈跟踪解析 / 格式化",
+        cat: "debug",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "threaddump",
+        icon: "bi-diagram-3",
+        name: "线程 Dump 分析",
+        desc: "jstack 线程状态统计 / 死锁检测",
+        cat: "debug",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "sse",
+        icon: "bi-broadcast",
+        name: "SSE 调试",
+        desc: "fetch 流式读取 SSE / 自定义请求头",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mybatissqllog",
+        icon: "bi-journal-code",
+        name: "MyBatis SQL 还原",
+        desc: "Preparing + Parameters 合成可执行 SQL",
+        cat: "debug",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "sqlbind",
+        icon: "bi-link-45deg",
+        name: "SQL 参数绑定",
+        desc: "? / :name 占位符 + 参数列表填充为完整 SQL",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "urlquery",
+        icon: "bi-link",
+        name: "URL 参数构造器",
+        desc: "表格编辑 query，生成 URL / 解析回填",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "poolcalc",
+        icon: "bi-cpu",
+        name: "线程池参数估算",
+        desc: "按 QPS/耗时估算 core/max/queue 与说明",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "videodebug",
+        icon: "bi-camera-video",
+        name: "视频调试",
+        desc: "本地/URL/M3U/HLS 播放 · 元数据 · 事件 · 截帧",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "mqtt",
+        icon: "bi-broadcast-pin",
+        name: "MQTT 调试",
+        desc: "MQTT over WebSocket 连接 / 订阅 / 发布 / 消息日志",
+        cat: "debug",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mappicker",
+        icon: "bi-geo-alt",
+        name: "地图选址",
+        desc: "瓦片地图点选坐标 / 复制经纬度",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "csselector",
+        icon: "bi-cursor",
+        name: "CSS 选择器测试",
+        desc: "输入 HTML + selector，高亮匹配节点",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "specificity",
+        icon: "bi-hash",
+        name: "特异性计算器",
+        desc: "计算 CSS selector specificity (a,b,c)",
+        cat: "debug",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "arthas",
+        icon: "bi-terminal",
+        name: "Arthas 命令",
+        desc: "Arthas 诊断命令速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "linux",
+        icon: "bi-terminal-fill",
+        name: "Linux 命令",
+        desc: "常用 Linux 命令速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "jvmargs",
+        icon: "bi-cpu",
+        name: "JVM 参数",
+        desc: "JVM 启动参数速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "redisref",
+        icon: "bi-database-fill-gear",
+        name: "Redis 命令",
+        desc: "Redis 常用命令速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "springcloud",
+        icon: "bi-cloud-fog2",
+        name: "Spring Cloud",
+        desc: "Spring Cloud Alibaba 组件速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "docker",
+        icon: "bi-box-seam",
+        name: "Docker 命令",
+        desc: "Docker / K8s 命令速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "regexref",
+        icon: "bi-regex",
+        name: "正则速查表",
+        desc: "常用正则表达式分类速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "gitref",
+        icon: "bi-git",
+        name: "Git 命令",
+        desc: "Git 常用操作速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "frontend",
+            "backend"
+        ]
+    },
+    {
+        id: "httpstatus",
+        icon: "bi-info-circle",
+        name: "HTTP 状态码",
+        desc: "HTTP 状态码 / 方法速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "ascii",
+        icon: "bi-keyboard",
+        name: "ASCII 表",
+        desc: "ASCII / 控制字符速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mybatisplus",
+        icon: "bi-database-gear",
+        name: "MyBatis Plus",
+        desc: "MyBatis Plus 常用方法速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "mybatissql",
+        icon: "bi-filetype-xml",
+        name: "MyBatis XML",
+        desc: "MyBatis 动态 SQL 标签速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "lombok",
+        icon: "bi-lightning",
+        name: "Lombok 注解",
+        desc: "Lombok 常用注解速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "springboot",
+        icon: "bi-stars",
+        name: "Spring Boot 注解",
+        desc: "Spring Boot 常用注解速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "txpropagation",
+        icon: "bi-diagram-3",
+        name: "事务传播",
+        desc: "Spring 事务传播行为速查",
+        cat: "reference",
+        tags: [
+            "java",
+            "backend"
+        ]
+    },
+    {
+        id: "mavenref",
+        icon: "bi-box",
+        name: "Maven 命令",
+        desc: "Maven 常用命令速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "gradle",
+        icon: "bi-boxes",
+        name: "Gradle 命令",
+        desc: "Gradle 常用命令速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "jdkfeatures",
+        icon: "bi-cup-hot",
+        name: "JDK 新特性",
+        desc: "JDK 8/11/17/21 新特性速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "httpheader",
+        icon: "bi-list-columns-reverse",
+        name: "HTTP Header",
+        desc: "HTTP 通用 / 请求 / 响应头速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mqref",
+        icon: "bi-mailbox",
+        name: "消息中间件",
+        desc: "Kafka / RabbitMQ / RocketMQ 速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "mimetype",
+        icon: "bi-file-earmark",
+        name: "MIME 类型",
+        desc: "文件扩展名 / MIME 类型对照",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "portref",
+        icon: "bi-ethernet",
+        name: "端口号速查",
+        desc: "常用网络服务端口号对照",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "ideakeys",
+        icon: "bi-keyboard",
+        name: "IDEA 快捷键",
+        desc: "IntelliJ IDEA 快捷键速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "designpatterns",
+        icon: "bi-diagram-3",
+        name: "设计模式",
+        desc: "23 种设计模式示例代码",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "gcref",
+        icon: "bi-cpu",
+        name: "GC 调优",
+        desc: "JVM 垃圾回收算法与参数速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "securityref",
+        icon: "bi-shield-lock",
+        name: "Spring Security",
+        desc: "Spring Security 注解与配置速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "junit5",
+        icon: "bi-check2-square",
+        name: "JUnit 5",
+        desc: "JUnit 5 注解与断言速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "flowableref",
+        icon: "bi-diagram-2",
+        name: "Flowable / BPMN",
+        desc: "Flowable API / BPMN / 监听器 / 表前缀速查（含场景与示例）",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "jparef",
+        icon: "bi-database",
+        name: "JPA / Hibernate 速查",
+        desc: "注解、关系映射、JPQL / FetchType 速查",
+        cat: "reference",
+        tags: [
+            "java"
+        ]
+    },
+    {
+        id: "cssref",
+        icon: "bi-filetype-css",
+        name: "CSS 属性速查",
+        desc: "常用 CSS 属性 / 值 / 简写速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "vuereactref",
+        icon: "bi-code-slash",
+        name: "Vue / React 速查",
+        desc: "Vue 3 / React Hooks 常用 API 速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "esref",
+        icon: "bi-filetype-js",
+        name: "ES/JS 特性速查",
+        desc: "ES6+ 语法与 API 速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "frontend"
+        ]
+    },
+    {
+        id: "k8sref",
+        icon: "bi-hdd-stack",
+        name: "Kubernetes 速查",
+        desc: "kubectl 常用命令速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    },
+    {
+        id: "esdslref",
+        icon: "bi-search",
+        name: "ES DSL 速查",
+        desc: "Elasticsearch Query DSL 速查",
+        cat: "reference",
+        tags: [
+            "common",
+            "backend"
+        ]
+    }
+]
+
+export const toolIdAliases: Record<string, string> = {
+    json2csv: "jsonexcel",
+    base64: "basen",
+    base32: "basen",
+    qrdecode: "qrcode",
+}
+
+export const toolsById: Record<string, Tool> = Object.fromEntries(tools.map(t => [t.id, t]))
+
+export function getBusinessCategories() {
+    return categories.filter(c => !c.virtual)
+}
+
+export function getRegistryStats() {
+    return { toolCount: tools.length, categoryCount: getBusinessCategories().length }
+}
+
+export function formatHomeSubtitle(stats?: { toolCount: number; categoryCount: number }) {
+    const s = stats || getRegistryStats()
+    return `${s.toolCount} 个工具 · ${s.categoryCount} 大分类 · 全栈可用 · 纯前端本地处理`
+}
+
+/** 工具是否匹配受众筛选：all | common | frontend | backend | java */
+export function toolMatchesAudience(tool: Tool, audience: string) {
+    if (!audience || audience === 'all') return true
+    const tags = (tool && tool.tags) || []
+    if (!tags.length) return audience === 'common'
+    if (audience === 'java') return tags.indexOf('java') !== -1
+    if (audience === 'frontend') return tags.indexOf('frontend') !== -1
+    if (audience === 'backend') return tags.indexOf('backend') !== -1
+    if (audience === 'common') {
+        return tags.indexOf('common') !== -1
+    }
+    return true
+}
+
+export function resolveToolId(id: string): string | null {
+    const resolved = toolIdAliases[id] || id
+    return toolsById[resolved] ? resolved : null
+}

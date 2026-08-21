@@ -1,0 +1,190 @@
+{
+  "json": {
+    "cases": [
+      "格式化：{\"a\":1,\"b\":[2,3]} → 缩进美化",
+      "压缩：美化后 JSON → 单行",
+      "非法：{a:1} → 校验失败提示",
+      "空输入 → 友好提示"
+    ]
+  },
+  "base64": {
+    "cases": [
+      "编码：hello → aGVsbG8=",
+      "解码：aGVsbG8= → hello",
+      "非法 Base64 → 错误提示"
+    ]
+  },
+  "url": {
+    "cases": [
+      "编码：a b?c=1 → 百分号编码",
+      "解码：还原原文",
+      "空输入"
+    ]
+  },
+  "uuid": {
+    "cases": [
+      "生成 v4：格式 xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",
+      "连续生成不重复（抽查）"
+    ]
+  },
+  "hex": {
+    "cases": [
+      "字符串 ↔ Hex",
+      "非法 hex → 错误提示"
+    ]
+  },
+  "yaml": {
+    "cases": [
+      "YAML→JSON / JSON→YAML 主路径",
+      "非法 YAML → 错误提示"
+    ]
+  },
+  "sql": {
+    "cases": [
+      "压缩空白",
+      "简单 SELECT 美化换行",
+      "空输入"
+    ]
+  },
+  "hash": {
+    "cases": [
+      "MD5/SHA256：固定字符串与旧站对照",
+      "空输入"
+    ]
+  },
+  "ts": {
+    "cases": [
+      "秒/毫秒时间戳 ↔ 本地日期时间",
+      "非法数字 → 提示"
+    ]
+  },
+  "jwt": {
+    "cases": [
+      "粘贴三段式 JWT → 展示 header/payload",
+      "残缺 token → 错误提示",
+      "注明：默认不验签（jwtverify 另测）"
+    ]
+  },
+  "cron": {
+    "cases": [
+      "5 段 `0 */5 * * *` → 规范 7 段并给出下次执行",
+      "可视化：任意/间隔/指定格子与表达式同步",
+      "非法段数 → 明确错误"
+    ]
+  },
+  "quartzcron": {
+    "cases": [
+      "`0 0 9 * * MON-FRI` → 字段说明 + Spring 注解",
+      "日与周同非 ? 时提示",
+      "空输入报错"
+    ]
+  },
+  "urlparser": {
+    "cases": [
+      "含 user/pass/port/query/hash 的 URL 解析",
+      "重复 query key → 对象数组",
+      "非法 URL 报错"
+    ]
+  },
+  "urlquery": {
+    "cases": [
+      "解析 `?q=hi+x&page=1#t` → 参数与 hash",
+      "构造 base+参数+hash 往返",
+      "空 base 报错"
+    ]
+  },
+  "sqlbind": {
+    "cases": [
+      "`?` + 多行参数 → 字面量替换",
+      "`#{id}` / `:name` 命名绑定",
+      "强制字符串引号"
+    ]
+  },
+  "cookiecache": {
+    "cases": [
+      "`a=1; b=2` Cookie 头解析",
+      "`sid=abc; Path=/; HttpOnly` Set-Cookie 解析",
+      "构造 Set-Cookie / Cache-Control"
+    ]
+  },
+  "ip": {
+    "cases": [
+      "`192.168.1.10/24` → 网络/广播/可用主机",
+      "非法 IP / 掩码报错",
+      "私网/回环判定"
+    ]
+  },
+  "logfmt": {
+    "cases": [
+      "（待补）旧站结构化解析+着色+堆栈折叠",
+      "现有：按最低级别/关键词过滤行"
+    ]
+  },
+  "logpattern": {
+    "cases": [
+      "`%d{HH:mm:ss} [%thread] %-5level %msg%n` 转换符说明",
+      "空输入 → 常用转换符速查"
+    ]
+  },
+  "traceheader": {
+    "cases": [
+      "解析标准 traceparent",
+      "生成 traceparent + b3 单头/多头",
+      "B3 单头采样位"
+    ]
+  },
+  "stacktrace": {
+    "cases": [
+      "异常 + Caused by + at 帧解析",
+      "隐藏 JDK/框架帧",
+      "无法解析时报错"
+    ]
+  },
+  "threaddump": {
+    "cases": [
+      "线程头 + Thread.State 统计",
+      "daemon 标记",
+      "死锁段提取（若有）"
+    ]
+  },
+  "nginxlog": {
+    "cases": [
+      "combined 单行字段拆解",
+      "多行汇总：状态组/Top IP/URL",
+      "无法解析行计数跳过"
+    ]
+  },
+  "mybatissqllog": {
+    "cases": [
+      "Preparing + Parameters(Type) → Bound SQL",
+      "无 Preparing 时兜底提取 SQL 行",
+      "空输入报错"
+    ]
+  },
+  "specificity": {
+    "cases": [
+      "`#app .nav a.active` → (1,2,1)",
+      "空选择器报错"
+    ]
+  },
+  "csselector": {
+    "cases": [
+      "HTML + 选择器 querySelectorAll 计数（浏览器）",
+      "速查说明模式",
+      "非法选择器报错"
+    ]
+  },
+  "spel": {
+    "cases": [
+      "`#user.age > 18` + context JSON → true",
+      "结构分析：变量/括号",
+      "方法调用 / T() 明确不支持报错"
+    ]
+  },
+  "poolcalc": {
+    "cases": [
+      "QPS=200 avgMs=50 cores=8 block=1 util=0.7 → core=12 max=24 queue=360",
+      "非法 QPS/利用率报错"
+    ]
+  }
+}

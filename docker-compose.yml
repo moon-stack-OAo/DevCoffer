@@ -1,0 +1,23 @@
+services:
+  devcoffer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: devcoffer:local
+    container_name: devcoffer
+    ports:
+      - "${DEVCOFFER_PORT:-3000}:3000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: 3000
+      NODE_ENV: production
+      NUXT_TELEMETRY_DISABLED: "1"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
