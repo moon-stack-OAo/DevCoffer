@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-Disallow: /health
-
-Sitemap: https://tools.livancen.top/sitemap.xml

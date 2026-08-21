@@ -542,7 +542,10 @@ onBeforeRouteUpdate(() => {
         </div>
       </div>
     </div>
-    <h1 class="sr-only">{{ pageHeading }}</h1>
+    <header class="tool-hero">
+      <h1 class="tool-hero__title">{{ pageHeading }}</h1>
+      <p class="tool-hero__desc">{{ tool.desc || `${tool.name} · 纯前端本地处理，数据不出浏览器。` }}</p>
+    </header>
 
     <div class="tool-layout">
       <div class="tool-layout__main">
@@ -686,16 +689,22 @@ onBeforeRouteUpdate(() => {
   align-items: center;
   gap: 8px;
 }
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.tool-hero {
+  margin: 0 0 16px;
+}
+.tool-hero__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-strong);
+  line-height: 1.25;
+}
+.tool-hero__desc {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 .theme-btn,
 .fav-btn {

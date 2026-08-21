@@ -3,11 +3,13 @@ const { tools } = useToolsRegistry()
 const { ready, favorites, recent } = useToolHistory()
 const { isDark, toggleTheme } = useTheme()
 
+const route = useRoute()
 const q = ref('')
 const open = ref(false)
 const active = ref(0)
 const inputRef = ref<HTMLInputElement | null>(null)
 const panelRef = ref<HTMLElement | null>(null)
+let skipRouteSync = false
 
 const results = computed(() => {
     const key = q.value.trim().toLowerCase()
@@ -27,15 +29,38 @@ watch(results, () => {
     active.value = 0
 })
 
+watch(
+    () => String(route.query.q || ''),
+    (val: string) => {
+        if (skipRouteSync) return
+        const next = val.trim()
+        if (!next) return
+        q.value = next
+        open.value = true
+        nextTick(() => inputRef.value?.focus())
+    },
+    { immediate: true },
+)
+
 function focusSearch() {
     open.value = true
     nextTick(() => inputRef.value?.focus())
 }
 
-function closePanel() {
+async function closePanel() {
     open.value = false
     q.value = ''
     active.value = 0
+    if (route.query.q) {
+        skipRouteSync = true
+        const query = { ...route.query }
+        delete query.q
+        try {
+            await navigateTo({ path: route.path, query }, { replace: true })
+        } finally {
+            skipRouteSync = false
+        }
+    }
 }
 
 function goTool(id: string) {

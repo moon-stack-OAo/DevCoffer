@@ -28,7 +28,7 @@ const featured = computed(() =>
         .filter((t): t is NonNullable<typeof t> => !!t),
 )
 
-// 外链 /?q= 时跳转并聚焦顶栏搜索（由用户手动输入；此处仅提示）
+// 外链 /?q= 时由顶栏搜索自动承接并聚焦
 const qHint = computed(() => String(route.query.q || '').trim())
 </script>
 
@@ -39,7 +39,7 @@ const qHint = computed(() => String(route.query.q || '').trim())
       <h1 class="hero-title">DevCoffer · 码柜</h1>
       <p class="hero-sub">{{ subtitle }}</p>
       <p class="hero-tip">按 <kbd>Ctrl</kbd> + <kbd>K</kbd> 或使用顶部搜索框快速查找工具</p>
-      <p v-if="qHint" class="hero-tip">当前外链关键词：{{ qHint }}（请在顶部搜索框继续输入）</p>
+      <p v-if="qHint" class="hero-tip">已根据关键词「{{ qHint }}」打开顶部搜索，可继续筛选或回车进入工具。</p>
     </section>
 
     <section class="home-section">

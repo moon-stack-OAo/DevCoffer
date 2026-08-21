@@ -1,4 +1,4 @@
-import { SITE, absUrl, clipMeta } from '~/utils/site'
+import {absUrl, clipMeta, SITE} from '~/utils/site'
 
 type ToolLike = {
     id: string
@@ -9,6 +9,7 @@ type ToolLike = {
     catName?: string
     tags?: string[]
 }
+
 type CatLike = { id: string; name: string }
 
 function applyPageSeo(opts: {
@@ -17,13 +18,17 @@ function applyPageSeo(opts: {
     path: string
     keywords?: string[]
     type?: 'website' | 'article'
+    ogTitle?: string
+    ogDescription?: string
+    ogBadge?: string
     jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }) {
     const url = absUrl(opts.path)
     const description = clipMeta(opts.description)
     const title = opts.title
     const keywords = [...new Set([...(opts.keywords || []), ...SITE.keywords])].join(',')
-    const ogImage = absUrl('/og.svg')
+    const ogTitle = opts.ogTitle || title
+    const ogDescription = clipMeta(opts.ogDescription || description, 120)
 
     useSeoMeta({
         title,
@@ -37,12 +42,15 @@ function applyPageSeo(opts: {
         ogType: opts.type || 'website',
         ogSiteName: SITE.brand,
         ogLocale: SITE.locale,
-        ogImage,
-        ogImageAlt: SITE.brand,
         twitterCard: 'summary_large_image',
         twitterTitle: title,
         twitterDescription: description,
-        twitterImage: ogImage,
+    })
+
+    defineOgImageComponent('DevCoffer.satori', {
+        title: ogTitle,
+        description: ogDescription,
+        badge: opts.ogBadge || 'Developer Toolbox',
     })
 
     const scripts = []
@@ -103,6 +111,9 @@ export function useToolSeo(tool: ToolLike) {
         path,
         keywords,
         type: 'website',
+        ogTitle: tool.name,
+        ogDescription: tool.desc || description,
+        ogBadge: tool.catName || '在线工具',
         jsonLd: [
             {
                 '@context': 'https://schema.org',
@@ -140,18 +151,26 @@ export function useToolSeo(tool: ToolLike) {
                 mainEntity: [
                     {
                         '@type': 'Question',
-                        name: `${tool.name} 会上传我的数据吗？`,
+                        name: `${tool.name} 会上传数据吗？`,
                         acceptedAnswer: {
                             '@type': 'Answer',
-                            text: '不会。DevCoffer 工具默认在浏览器本地处理，服务端不做编解码，用户输入默认不出站。',
+                            text: '不会。本工具在浏览器本地运行，服务端不做编解码，输入内容默认不出站。',
                         },
                     },
                     {
                         '@type': 'Question',
-                        name: `${tool.name} 是否免费？`,
+                        name: '是否需要安装或登录？',
                         acceptedAnswer: {
                             '@type': 'Answer',
-                            text: `是的，${tool.name} 在 DevCoffer（码柜）上可免费使用。`,
+                            text: '不需要。打开页面即可使用，免费、无账号门槛。',
+                        },
+                    },
+                    {
+                        '@type': 'Question',
+                        name: '适合什么场景？',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: `${tool.desc || `${tool.name} 日常开发调试与数据处理。`}结果可直接复制使用。`,
                         },
                     },
                 ],
@@ -210,6 +229,9 @@ export function useCategorySeo(
         description,
         path,
         keywords: [cat.name, cat.id, `${cat.name}工具`],
+        ogTitle: `${cat.name}工具合集`,
+        ogDescription: description,
+        ogBadge: '工具分类',
         jsonLd,
     })
 }
@@ -226,6 +248,9 @@ export function useHomeSeo(toolCount?: number) {
         title,
         description,
         path: '/',
+        ogTitle: SITE.brand,
+        ogDescription: '免费纯前端开发者工具箱 · 本地处理，数据不出浏览器',
+        ogBadge: 'Developer Toolbox',
         jsonLd: [
             {
                 '@context': 'https://schema.org',
@@ -237,7 +262,10 @@ export function useHomeSeo(toolCount?: number) {
                 inLanguage: SITE.lang,
                 potentialAction: {
                     '@type': 'SearchAction',
-                    target: `${SITE.url}/?q={search_term_string}`,
+                    target: {
+                        '@type': 'EntryPoint',
+                        urlTemplate: `${SITE.url}/?q={search_term_string}`,
+                    },
                     'query-input': 'required name=search_term_string',
                 },
             },
