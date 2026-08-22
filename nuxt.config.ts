@@ -87,6 +87,12 @@ export default defineNuxtConfig({
                 { name: 'application-name', content: 'DevCoffer' },
                 { name: 'format-detection', content: 'telephone=no' },
                 { name: 'robots', content: 'index,follow,max-image-preview:large' },
+                // 站长平台所有权验证
+                { name: 'msvalidate.01', content: '8387AD90E85F04485433A359529D1CC6' },
+                {
+                    name: 'google-site-verification',
+                    content: 'LpOFJx7v4Wp49zX318dty3iKcYJcD66PLRx5xmW-jX8',
+                },
                 { property: 'og:site_name', content: 'DevCoffer · 码柜' },
                 { property: 'og:locale', content: 'zh_CN' },
                 { property: 'og:type', content: 'website' },
