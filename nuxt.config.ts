@@ -56,6 +56,7 @@ export default defineNuxtConfig({
     },
 
     // 壳层短缓存；探活与站点地图不缓存错内容
+    // 安全头由 server/middleware/security-headers.ts 统一注入（含 HSTS / CSP）
     routeRules: {
         '/': { swr: 3600 },
         '/c/**': { swr: 3600 },
@@ -105,7 +106,7 @@ export default defineNuxtConfig({
             ],
             script: [
                 {
-                    // 首屏前同步主题，避免闪烁
+                    // 首屏前同步主题，避免闪烁（内容须与 server/utils/csp.ts 中 THEME_INIT_SCRIPT / SHA256 保持一致）
                     key: 'theme-init',
                     innerHTML:
                         "(function(){try{var t=localStorage.getItem('devcoffer:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);var m=document.querySelector('meta[name=\"theme-color\"]');if(m)m.setAttribute('content',t==='light'?'#f4f7fb':'#0b1220');}}catch(e){}})();",

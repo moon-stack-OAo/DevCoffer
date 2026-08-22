@@ -31,6 +31,7 @@
   min-height: 0;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
   .fmt-split {
     flex-direction: column;
@@ -48,6 +49,7 @@
   min-width: 0;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
   .grid-2col {
     flex-direction: column;

@@ -28,6 +28,7 @@ const isToolPage = computed(() => route.path.startsWith('/t/'))
   flex-direction: column;
   color: var(--text);
 }
+/* --bp-xl: 1100px → min-width: 1101px */
 @media (min-width: 1101px) {
   .app-shell:has(.tool-layout),
   .app-shell--tool {
@@ -57,11 +58,24 @@ const isToolPage = computed(() => route.path.startsWith('/t/'))
   padding: 18px 24px 16px;
   min-height: 0;
 }
+/* --bp-md: 720px */
+@media (max-width: 720px) {
+  .app-main {
+    padding: 12px 12px 16px;
+  }
+}
+/* --bp-md+ → --bp-xl */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .app-main {
+    padding: 14px 16px 16px;
+  }
+}
 .app-main:has(.tool-layout),
 .app-shell--tool .app-main {
   display: flex;
   flex-direction: column;
 }
+/* --bp-xl: 1100px → min-width: 1101px */
 @media (min-width: 1101px) {
   .app-main:has(.tool-layout),
   .app-shell--tool .app-main {

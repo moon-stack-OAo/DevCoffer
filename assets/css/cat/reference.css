@@ -879,6 +879,7 @@
     font-size: 11.5px;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .ref-grid {
         grid-template-columns: 1fr;
@@ -924,7 +925,8 @@
     }
 }
 
-@media (max-width: 768px) {
+/* --bp-md: 720px（原 768） */
+@media (max-width: 720px) {
     .ref-search-bar {
         padding: 10px 12px;
         margin-bottom: 14px;

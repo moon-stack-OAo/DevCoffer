@@ -38,7 +38,8 @@
     margin: 1px 0;
 }
 
-@media (max-width: 768px) {
+/* --bp-md: 720px（原 768） */
+@media (max-width: 720px) {
     .diff-container {
         flex-direction: column;
     }
@@ -359,7 +360,8 @@
     font-family: var(--font);
 }
 
-@media (max-width: 768px) {
+/* --bp-md: 720px（原 768） */
+@media (max-width: 720px) {
     .md-split {
         flex-direction: column;
     }
@@ -461,6 +463,7 @@
     gap: 14px;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .qrdecode-layout {
         grid-template-columns: 1fr;

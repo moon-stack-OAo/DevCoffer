@@ -254,6 +254,7 @@
     font-weight: 600;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .ib64-main {
         grid-template-columns: 1fr;
@@ -385,6 +386,7 @@
     color: var(--error, #ff6b6b);
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .pb-main {
         grid-template-columns: 1fr;

@@ -247,6 +247,7 @@
     height: 38px;
 }
 
+/* --bp-md: 720px */
 @media (max-width: 720px) {
     .ts-single-grid {
         grid-template-columns: 1fr;
@@ -461,6 +462,7 @@
     margin-bottom: 12px;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .ts-batch-grid {
         grid-template-columns: 1fr;
@@ -1185,6 +1187,7 @@
     font-size: 13px;
 }
 
+/* --bp-md: 720px */
 @media (max-width: 720px) {
     .ims-previews {
         grid-template-columns: 1fr;
@@ -1302,7 +1305,7 @@
 /* 阴影生成器 */
 .bsh-layout {
     display: grid;
-    grid-template-columns: 1fr minmax(240px, 320px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
     gap: 16px;
     align-items: start;
 }
@@ -1392,7 +1395,8 @@
     user-select: none;
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800；旁已有 900 单列族，就近收敛） */
+@media (max-width: 720px) {
     .bsh-layout {
         grid-template-columns: 1fr;
     }
@@ -1405,7 +1409,7 @@
 /* 渐变生成器 */
 .gd-layout {
     display: grid;
-    grid-template-columns: 1fr minmax(240px, 340px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
     gap: 16px;
     align-items: start;
 }
@@ -1455,7 +1459,8 @@
     background-image: linear-gradient(90deg, #6366f1 0%, #22d3ee 100%);
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .gd-layout {
         grid-template-columns: 1fr;
     }
@@ -1491,7 +1496,7 @@
 
 .fg-layout {
     display: grid;
-    grid-template-columns: 1fr minmax(240px, 340px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
     gap: 16px;
     align-items: start;
 }
@@ -1541,7 +1546,8 @@
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .fg-layout {
         grid-template-columns: 1fr;
     }
@@ -1550,7 +1556,7 @@
 /* 贝塞尔曲线 */
 .cbz-layout {
     display: grid;
-    grid-template-columns: 1fr minmax(260px, 320px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
     gap: 16px;
     align-items: start;
 }
@@ -1600,7 +1606,8 @@
     transform: translateX(0);
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .cbz-layout {
         grid-template-columns: 1fr;
     }
@@ -1609,7 +1616,7 @@
 /* 对比度检查 */
 .ctr-layout {
     display: grid;
-    grid-template-columns: 1fr minmax(240px, 340px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
     gap: 16px;
     align-items: start;
 }
@@ -1753,7 +1760,8 @@
     line-height: 1.5;
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .ctr-layout {
         grid-template-columns: 1fr;
     }
@@ -1818,7 +1826,8 @@
     line-height: 1.5;
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .svo-layout {
         grid-template-columns: 1fr;
     }
@@ -1976,7 +1985,8 @@
     line-height: 1.5;
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .ccl-opts {
         grid-template-columns: 1fr 1fr;
     }
@@ -2013,7 +2023,8 @@
     line-height: 1.5;
 }
 
-@media (max-width: 800px) {
+/* --bp-md: 720px（原 800） */
+@media (max-width: 720px) {
     .mq-opts {
         grid-template-columns: 1fr;
     }
@@ -2055,7 +2066,7 @@
 
 .fp-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
     gap: 16px;
     align-items: stretch;
     min-height: 0;
@@ -2232,6 +2243,7 @@
     line-height: 1.5;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .fp-layout {
         grid-template-columns: 1fr;
@@ -2376,6 +2388,7 @@
     color: var(--accent2, var(--accent));
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .gi-main {
         grid-template-columns: 1fr;
@@ -2489,6 +2502,7 @@
     min-height: 120px;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .cors-main {
         grid-template-columns: 1fr;
@@ -2636,6 +2650,7 @@
     color: var(--accent2, var(--accent));
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .cc-main {
         grid-template-columns: 1fr;

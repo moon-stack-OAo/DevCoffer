@@ -224,7 +224,13 @@ function openRecent() {
         </button>
 
         <div class="hdr-menu">
-          <button type="button" class="hdr-btn" :class="{ 'is-on': showFav }" @click="openFav">
+          <button
+            :class="{ 'is-on': showFav }"
+            aria-label="收藏"
+            class="hdr-btn"
+            type="button"
+            @click="openFav"
+          >
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.8 6.6 20l1-6.1L3.2 9.4l6.1-.9L12 3z" stroke-linejoin="round" />
             </svg>
@@ -247,7 +253,13 @@ function openRecent() {
         </div>
 
         <div class="hdr-menu">
-          <button type="button" class="hdr-btn" :class="{ 'is-on': showRecent }" @click="openRecent">
+          <button
+            :class="{ 'is-on': showRecent }"
+            aria-label="最近使用"
+            class="hdr-btn"
+            type="button"
+            @click="openRecent"
+          >
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="8" />
               <path d="M12 8v5l3 2" stroke-linecap="round" />
@@ -552,6 +564,21 @@ function openRecent() {
   line-height: 1.45;
 }
 
+/* Pad：搜索区与操作区防挤压 — --bp-lg: 900px（原 960） */
+@media (max-width: 900px) {
+  .hdr__inner {
+    gap: 10px;
+    padding: 0 16px;
+  }
+  .hdr-brand__sub {
+    max-width: 120px;
+  }
+  .hdr-search {
+    max-width: none;
+  }
+}
+
+/* --bp-md: 720px */
 @media (max-width: 720px) {
   .hdr__inner {
     grid-template-columns: auto 1fr;
@@ -565,20 +592,45 @@ function openRecent() {
   .hdr-actions {
     grid-column: 2;
     justify-self: end;
+    gap: 4px;
   }
   .hdr-search {
     grid-column: 1 / -1;
     max-width: none;
     justify-self: stretch;
   }
+  .hdr-search__box {
+    height: 44px;
+  }
   .hdr-brand__sub {
     display: none;
+  }
+  .hdr-btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
   }
   .hdr-btn span:not(.hdr-btn__count) {
     display: none;
   }
+  .hdr-btn__count {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    font-size: 0.65rem;
+  }
+  .hdr-menu .hdr-btn {
+    position: relative;
+  }
   .hdr-search__kbd {
     display: none;
+  }
+  .hdr-dropdown {
+    width: min(280px, calc(100vw - 24px));
   }
 }
 </style>

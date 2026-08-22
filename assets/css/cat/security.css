@@ -353,7 +353,8 @@
     margin-bottom: 12px;
 }
 
-@media (max-width: 700px) {
+/* --bp-md: 720px（原 700） */
+@media (max-width: 720px) {
     .pbkdf2-params {
         grid-template-columns: 1fr;
     }

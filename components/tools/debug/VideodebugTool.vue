@@ -592,7 +592,7 @@ watch(loop, onLoop)
           </div>
         </div>
         <div v-if="shotUrl" class="shot">
-          <img :src="shotUrl" alt="截帧" />
+          <img :src="shotUrl" alt="视频播放器当前画面截帧" />
           <div class="shot-meta">{{ shotMeta }}</div>
         </div>
       </div>

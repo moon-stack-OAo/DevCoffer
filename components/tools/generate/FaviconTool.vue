@@ -63,7 +63,7 @@ run()
     <template #input>
       <label class="lbl">预览</label>
       <div class="preview fav-preview">
-        <img v-if="output" :src="dataUrl" alt="favicon" class="favimg" />
+        <img v-if="output" :src="dataUrl" alt="Favicon 预览" class="favimg" />
       </div>
     </template>
     <template #output>

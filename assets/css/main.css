@@ -78,6 +78,12 @@ html[data-theme="dark"] {
   --blue-grey: #607d8b;
   --header-h: 58px;
   --max: 1180px;
+  /* 响应式断点（文档用；媒体查询仍用字面量以便兼容） */
+  --bp-sm: 640px;
+  --bp-md: 720px;
+  --bp-lg: 900px;
+  --bp-xl: 1100px;
+  --touch-min: 44px;
 }
 
 html[data-theme="light"] {
@@ -629,6 +635,18 @@ input[type="color"]::-moz-color-swatch {
 @media (max-width: 640px) {
   .grid2 {
     grid-template-columns: 1fr;
+  }
+  .opts .inp,
+  .opts .sel,
+  .opts .num {
+    min-width: 0;
+    width: 100%;
+  }
+  .opts label {
+    width: 100%;
+  }
+  .btn {
+    min-height: 40px;
   }
 }
 .chips {

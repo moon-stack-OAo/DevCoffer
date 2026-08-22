@@ -707,6 +707,7 @@
     min-height: 0;
 }
 
+/* --bp-xl: 1100px（工具页整页壳层） */
 @media (max-width: 1100px) {
     .http-layout {
         grid-template-columns: 1fr;
@@ -1292,7 +1293,8 @@
     padding: 6px 18px;
 }
 
-@media (max-width: 768px) {
+/* --bp-md: 720px（原 768） */
+@media (max-width: 720px) {
     .http-topbar {
         flex-direction: column;
         align-items: stretch;
@@ -1407,7 +1409,7 @@
 
 .tool-panel#panel-cookiecache > .stomp-block {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.9fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
     gap: 0 14px;
     align-items: start;
 }
@@ -1441,7 +1443,7 @@
 .grpc-meta-layout,
 .grpc-pb-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: 0 14px;
     align-items: start;
 }
@@ -1482,6 +1484,7 @@
     min-height: 260px;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .tool-panel#panel-cookiecache > .stomp-block,
     .grpc-meta-layout,
@@ -1748,6 +1751,7 @@
     margin-bottom: 12px;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .sse-config {
         grid-template-columns: 1fr;
@@ -1937,7 +1941,7 @@
 /* === 线程池参数估算 poolcalc === */
 .pc-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.15fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
     gap: 14px;
     align-items: start;
     width: 100%;
@@ -2232,6 +2236,7 @@
     color: var(--accent);
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .pc-layout {
         grid-template-columns: 1fr;
@@ -2242,7 +2247,8 @@
     }
 }
 
-@media (max-width: 520px) {
+/* --bp-sm: 640px（原 520） */
+@media (max-width: 640px) {
     .pc-form-grid,
     .pc-metrics {
         grid-template-columns: 1fr;
@@ -2252,7 +2258,7 @@
 /* === 日志 Pattern logpattern === */
 .lp-layout {
     display: grid;
-    grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.2fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
     gap: 14px;
     align-items: stretch;
     width: 100%;
@@ -2674,6 +2680,7 @@
     white-space: nowrap;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .lp-layout {
         grid-template-columns: 1fr;
@@ -2689,7 +2696,8 @@
     }
 }
 
-@media (max-width: 520px) {
+/* --bp-sm: 640px（原 520） */
+@media (max-width: 640px) {
     .lp-token-meta {
         grid-template-columns: 1fr;
         gap: 2px;
@@ -2713,11 +2721,12 @@
 /* 左右列 stretch 等高，预览卡与右侧三卡整体对齐 */
 .vd-layout {
     display: grid;
-    grid-template-columns: minmax(320px, 1.15fr) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     gap: 14px;
     align-items: stretch;
 }
 
+/* --bp-xl: 1100px（工具页整页壳层） */
 @media (max-width: 1100px) {
     .vd-layout {
         grid-template-columns: 1fr;
@@ -3061,11 +3070,12 @@
 
 .mp-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
     gap: 14px;
     align-items: stretch;
 }
 
+/* --bp-xl: 1100px（工具页整页壳层） */
 @media (max-width: 1100px) {
     .mp-layout {
         grid-template-columns: 1fr;
@@ -3499,6 +3509,7 @@
     width: 160px;
 }
 
+/* --bp-sm: 640px */
 @media (max-width: 640px) {
     .mqtt-field {
         grid-template-columns: 1fr;
@@ -3512,7 +3523,7 @@
 
 .mqtt-workspace {
     display: grid;
-    grid-template-columns: minmax(240px, 0.28fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.28fr) minmax(0, 1fr);
     gap: 12px;
     flex: 1;
     min-height: 420px;
@@ -3973,6 +3984,7 @@
     flex-shrink: 0;
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .mqtt-workspace {
         grid-template-columns: 1fr;
@@ -4019,7 +4031,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
-@media (max-width: 700px) {
+/* --bp-md: 720px（原 700） */
+@media (max-width: 720px) {
     .nxl-tops { grid-template-columns: 1fr; }
 }
 .nxl-tops ul {
@@ -4092,7 +4105,7 @@
 /* CSS Selector Tester */
 .cssel-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
     gap: 12px;
     align-items: stretch;
     min-height: 0;
@@ -4445,12 +4458,14 @@
     border-radius: 3px;
 }
 
+/* --bp-xl: 1100px */
 @media (max-width: 1100px) {
     .cssel-layout {
-        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.75fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr);
     }
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .cssel-layout {
         grid-template-columns: 1fr;
@@ -4487,7 +4502,8 @@
     }
 }
 
-@media (max-width: 560px) {
+/* --bp-sm: 640px（原 560） */
+@media (max-width: 640px) {
     .cssel-sel-actions {
         width: 100%;
     }
@@ -4572,7 +4588,8 @@
     color: var(--text);
     font-weight: 600;
 }
-@media (max-width: 600px) {
+/* --bp-sm: 640px（原 600） */
+@media (max-width: 640px) {
     .spc-summary {
         grid-template-columns: 1fr;
     }

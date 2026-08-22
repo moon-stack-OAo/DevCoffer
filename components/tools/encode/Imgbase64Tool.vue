@@ -216,7 +216,7 @@ function clearAll() {
                 v-if="f.type.startsWith('image/') && f.dataUrl"
                 class="img2b64-thumb"
                 :src="f.dataUrl"
-                alt=""
+                :alt="`${f.name || '图片'} 缩略图`"
               />
               <div v-else class="img2b64-thumb" />
               <div class="img2b64-info">
@@ -258,7 +258,7 @@ function clearAll() {
         <div class="ib64-card ib64-card-preview">
           <div class="ib64-card-title"><i class="bi bi-image" /> 预览</div>
           <div class="b642img-preview">
-            <img v-if="preview" :src="preview" alt="preview" />
+            <img v-if="preview" :src="preview" alt="Base64 解码图片预览" />
             <div v-else class="placeholder">点击「预览」查看图片</div>
           </div>
           <div class="b642img-meta">{{ previewMeta }}</div>

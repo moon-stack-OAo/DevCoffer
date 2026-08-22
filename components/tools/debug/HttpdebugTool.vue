@@ -762,7 +762,7 @@ watch(curlFmt, () => {
             </div>
             <pre v-if="respErrorText" class="resp-body error">{{ respErrorText }}</pre>
             <template v-else>
-              <img v-if="respImageUrl" :src="respImageUrl" class="resp-img" alt="preview" />
+              <img v-if="respImageUrl" :src="respImageUrl" alt="HTTP 响应图片预览" class="resp-img" />
               <pre class="resp-body">{{ respBodyText }}</pre>
             </template>
           </div>

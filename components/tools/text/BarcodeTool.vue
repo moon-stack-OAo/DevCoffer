@@ -73,7 +73,13 @@ onMounted(() => run())
     <template #input>
       <label class="lbl">输入</label>
       <input v-model="text" class="inp" style="width:100%;margin-bottom:8px" @change="run" />
-      <div class="preview" style="background:#fff"><svg ref="svgRef" /></div>
+      <div class="preview" style="background:#fff">
+        <svg
+          ref="svgRef"
+          :aria-label="`${format} 条形码：${text || '空'}`"
+          role="img"
+        />
+      </div>
     </template>
     <template #output>
       <label class="lbl">SVG</label>

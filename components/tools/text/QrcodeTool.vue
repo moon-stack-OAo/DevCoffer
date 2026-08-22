@@ -313,7 +313,7 @@ onBeforeUnmount(() => {
         @dragleave.prevent="dragging = false"
         @drop.prevent="onDrop"
       >
-        <img v-if="previewUrl" :src="previewUrl" class="thumb" alt="预览" />
+        <img v-if="previewUrl" :src="previewUrl" alt="待解码二维码图片预览" class="thumb" />
         <template v-else>
           <span class="dropzone__title">拖放图片到此处，或点击选择</span>
           <button type="button" class="btn btn-ghost" @click.stop="pickFile">选择图片</button>

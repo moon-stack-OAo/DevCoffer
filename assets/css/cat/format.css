@@ -1381,6 +1381,7 @@
     color: var(--accent);
 }
 
+/* --bp-lg: 900px */
 @media (max-width: 900px) {
     .jse-layout {
         flex-direction: column;
